@@ -1,10 +1,16 @@
 const faker = require('faker');
-// const fs = require('fs');
+const fs = require('fs');
 const _ = require('lodash');
-const { db, Biz, photo } = require('./index');
-// create the real one first
+const sampleBiz = require('../sample/business.js');
+const samplePhotos = require('../sample/photos');
+const sampleUsers = require('../sample/users');
+// const {
+//   db, Biz, user, photo,
+// } = require('./index');
+
+
 const generateBiz = () => {
-  const BizData = [];
+  let BizData = [];
   const first = [
     'Anchor', 'Bon', 'Chon', 'Buffalo', 'Wild', 'Chicken', 'Salad', 'Dell', 'Rhea\'s', 'Grandy\'s', 'Gus\'s', 'World',
     'Famous', 'Fried', 'Lee\'s', 'Ma', 'Yu', 'Ching\'s', 'Bucket', 'Pollo', 'Ranch', 'Rostipollos', 'Roscoe\'s', 'House of',
@@ -33,31 +39,11 @@ const generateBiz = () => {
     'Food Stands', 'Hot Dogs', 'Tacos', 'Karaoke', 'Acai Bowls', 'Cocktail Bars', 'Gelato', 'Lounges', 'Caterers',
     'Cafes', 'Breakfast & Brunch', 'Juice Bars & Smoothies', 'Delis',
   ];
-  // sampledata:
-  const sampleData = {
-    bid: 1,
-    bizname: 'Taste of Texas',
-    reviewCount: 1380,
-    rating: 4.5,
-    price: '$$$',
-    category: ['Steakhouses', 'Wine Bars'],
-    location: {
-      address1: '10505 Katy Fwy',
-      address2: 'Ste 2',
-      city: 'Houston',
-      state: 'TX',
-      zipcode: '77024',
-      latitude: 29.7827412984213,
-      longitude: -95.556758998672,
-    },
-    phone: '(713) 932-6901',
-    url: 'tasteoftexas.com',
-    photos: [
-      1, 2, 3,
-    ],
-  };
-  BizData.push(sampleData);
-  for (let bid = 2; bid <= 100; bid += 1) {
+  const district = [
+    'Montrose', 'Chinatown', 'South Main', 'Museum District', 'Downtown', 'Braeswood Place', 'Fourth Ward', 'Energy Corridor',
+  ];
+  BizData = BizData.concat(sampleBiz);
+  for (let bid = 4; bid <= 400; bid += 1) {
     let name = '';
     const length = Math.ceil(Math.random() * 2 + 1);
     for (let i = 0; i < length; i += 1) {
@@ -70,6 +56,8 @@ const generateBiz = () => {
     const type = [];
     type.push(_.sample(typeOne));
     type.push(_.sample(typeTwo));
+    let nhood = '';
+    nhood += _.sample(district);
     const bizname = name;
     const reviewCount = faker.random.number(8000);
     const rating = faker.random.arrayElement([1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, 5]);
@@ -83,6 +71,7 @@ const generateBiz = () => {
     const city = faker.address.city(3);
     const state = faker.address.stateAbbr();
     const zipcode = faker.address.zipCode('#####');
+    const neiborhood = nhood;
     const latitude = Number(faker.address.latitude());
     const longitude = Number(faker.address.longitude());
     const locObj = {
@@ -91,6 +80,7 @@ const generateBiz = () => {
       city,
       state,
       zipcode,
+      neiborhood,
       latitude,
       longitude,
     };
@@ -109,76 +99,62 @@ const generateBiz = () => {
     });
   }
 
-  // return { data: Biz };
+  // return { data: BizData };
   return BizData;
 };
 
 const generatePhoto = () => {
   let photos = [];
-  const samplePhoto = [
-    {
-      pid: 1,
-      imgUrl: 'https://s3-media4.fl.yelpcdn.com/bphoto/J3kWrFK9vE5oBgREBJ1YQg/o.jpg',
-      userName: 'hibow',
-      userAv: faker.internet.avatar(),
-      text: 'It is yummy!!!',
-      tag: 'Tomahawk Ribeye',
-    },
-    {
-      pid: 2,
-      imgUrl: 'https://s3-media3.fl.yelpcdn.com/bphoto/L38qQjyzPvt53aJ5sTj4sg/o.jpg',
-      userName: 'Lina',
-      userAv: faker.internet.avatar(),
-      text: 'Tasty!!!',
-      tag: 'Center Cut Filet',
-    },
-    {
-      pid: 3,
-      imgUrl: 'https://s3-media4.fl.yelpcdn.com/bphoto/fprtDpIJDMbI-Ede3s5G3Q/o.jpg',
-      userName: 'Gloria',
-      userAv: faker.internet.avatar(),
-      text: 'Snickers cake!!!Huge!',
-      tag: 'Snickers cake',
-    },
-  ];
-  photos = photos.concat(samplePhoto);
-  console.log(photos);
-  for (let pid = 4; pid <= 100; pid += 1) {
+  photos = photos.concat(samplePhotos);
+  for (let pid = 11; pid <= 400; pid += 1) {
     const imgUrl = faker.image.food();
-    const userName = faker.internet.userName();
-    const userAv = faker.image.avatar();
+    const uid = faker.random.number({ min: 1, max: 100 });
+    // const userName = faker.internet.userName();
+    // const userAv = faker.image.avatar();
     const text = faker.lorem.sentence();
     const tag = faker.commerce.productName();
-    // const bid = faker.random.number({ min: 1, max: 100 });
+    const bid = faker.random.number({ min: 1, max: 100 });
 
     photos.push({
       pid,
       imgUrl,
-      userName,
-      userAv,
+      uid,
+      bid,
       text,
       tag,
-      // bid, don't use it for sample data
     });
   }
   // return { photos };
   return photos;
 };
 
-const dataArr = generateBiz();
-const photoArr = generatePhoto();
+const generateUser = () => {
+  let users = [];
+  users = users.concat(sampleUsers);
+  for (let uid = 11; uid <= 400; uid += 1) {
+    const username = faker.internet.userName();
+    const userav = faker.image.avatar();
 
+    users.push({
+      uid,
+      username,
+      userav,
+    });
+  }
+  return users;
+};
+
+// const dataArr = generateBiz();
+// const dataObj = generateBiz();
+// const photoArr = generatePhoto();
+// const photoObj = generatePhoto();
+// const userObj = generateUser();
+// fs.writeFileSync('bizData.json', JSON.stringify(dataArr, null, '\t'));
 // fs.writeFileSync('bizData.json', JSON.stringify(dataObj, null, '\t'));
 // fs.writeFileSync('photoData.json', JSON.stringify(photoObj, null, '\t'));
-// need modify to async await or try catch
-const insertBizData = () => {
-  Biz.create(dataArr)
-    .then(() => console.log('done!'));
+// fs.writeFileSync('userData.json', JSON.stringify(userObj, null, '\t'));
+module.exports = {
+  generateBiz,
+  generatePhoto,
+  generateUser,
 };
-const insertPhoto = () => {
-  photo.create(photoArr)
-    .then(() => db.close());
-};
-
-insertBizData();
-insertPhoto();
