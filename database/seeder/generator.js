@@ -1,13 +1,8 @@
 const faker = require('faker');
-const fs = require('fs');
 const _ = require('lodash');
 const sampleBiz = require('../sample/business.js');
 const samplePhotos = require('../sample/photos');
 const sampleUsers = require('../sample/users');
-// const {
-//   db, Biz, user, photo,
-// } = require('./index');
-
 
 const generateBiz = () => {
   let BizData = [];
@@ -98,8 +93,6 @@ const generateBiz = () => {
       photos,
     });
   }
-
-  // return { data: BizData };
   return BizData;
 };
 
@@ -109,8 +102,6 @@ const generatePhoto = () => {
   for (let pid = 11; pid <= 400; pid += 1) {
     const imgUrl = faker.image.food();
     const uid = faker.random.number({ min: 1, max: 100 });
-    // const userName = faker.internet.userName();
-    // const userAv = faker.image.avatar();
     const text = faker.lorem.sentence();
     const tag = faker.commerce.productName();
     const bid = faker.random.number({ min: 1, max: 100 });
@@ -124,7 +115,6 @@ const generatePhoto = () => {
       tag,
     });
   }
-  // return { photos };
   return photos;
 };
 
@@ -143,16 +133,6 @@ const generateUser = () => {
   }
   return users;
 };
-
-// const dataArr = generateBiz();
-// const dataObj = generateBiz();
-// const photoArr = generatePhoto();
-// const photoObj = generatePhoto();
-// const userObj = generateUser();
-// fs.writeFileSync('bizData.json', JSON.stringify(dataArr, null, '\t'));
-// fs.writeFileSync('bizData.json', JSON.stringify(dataObj, null, '\t'));
-// fs.writeFileSync('photoData.json', JSON.stringify(photoObj, null, '\t'));
-// fs.writeFileSync('userData.json', JSON.stringify(userObj, null, '\t'));
 module.exports = {
   generateBiz,
   generatePhoto,

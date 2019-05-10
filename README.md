@@ -15,7 +15,9 @@
 
 ## Usage
 
-> Some usage instructions
+> Please run the following scripts to start this service:
+1. `npm run seed` : insert 400 mock items into database (business, photo)
+2. `npm run unseed`: remove all items from database
 
 ## Requirements
 
