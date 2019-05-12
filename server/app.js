@@ -23,6 +23,14 @@ app.get('/biz/:bId', async (req, res) => {
     res.status(400).send(err);
   }
 });
-
+// Get photo detail by requesting pId
+app.get('/biz_photo/:bId/:pId', async (req, res) => {
+  try {
+    const result = await getPhotoInfo(JSON.parse(req.params.pId), JSON.parse(req.params.bId));
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
 
 module.exports = app;
