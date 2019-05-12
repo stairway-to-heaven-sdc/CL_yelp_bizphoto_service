@@ -1,8 +1,13 @@
 const faker = require('faker');
+const fs = require('fs');
 const _ = require('lodash');
 const sampleBiz = require('../sample/business.js');
 const samplePhotos = require('../sample/photos');
 const sampleUsers = require('../sample/users');
+// const {
+//   db, Biz, user, photo,
+// } = require('./index');
+
 
 const generateBiz = () => {
   let BizData = [];
@@ -38,7 +43,7 @@ const generateBiz = () => {
     'Montrose', 'Chinatown', 'South Main', 'Museum District', 'Downtown', 'Braeswood Place', 'Fourth Ward', 'Energy Corridor',
   ];
   BizData = BizData.concat(sampleBiz);
-  for (let bid = 4; bid <= 400; bid += 1) {
+  for (let bId = 4; bId <= 400; bId += 1) {
     let name = '';
     const length = Math.ceil(Math.random() * 2 + 1);
     for (let i = 0; i < length; i += 1) {
@@ -81,7 +86,7 @@ const generateBiz = () => {
     };
 
     BizData.push({
-      bid,
+      bId,
       bizname,
       reviewCount,
       rating,
@@ -93,46 +98,61 @@ const generateBiz = () => {
       photos,
     });
   }
+
+  // return { data: BizData };
   return BizData;
 };
 
 const generatePhoto = () => {
   let photos = [];
   photos = photos.concat(samplePhotos);
-  for (let pid = 11; pid <= 400; pid += 1) {
+  for (let pId = 11; pId <= 400; pId += 1) {
     const imgUrl = faker.image.food();
-    const uid = faker.random.number({ min: 1, max: 100 });
+    const uId = faker.random.number({ min: 1, max: 100 });
+    // const userName = faker.internet.userName();
+    // const userAv = faker.image.avatar();
     const text = faker.lorem.sentence();
     const tag = faker.commerce.productName();
-    const bid = faker.random.number({ min: 1, max: 100 });
+    const bId = faker.random.number({ min: 1, max: 100 });
 
     photos.push({
-      pid,
+      pId,
       imgUrl,
-      uid,
-      bid,
+      uId,
+      bId,
       text,
       tag,
     });
   }
+  // return { photos };
   return photos;
 };
 
 const generateUser = () => {
   let users = [];
   users = users.concat(sampleUsers);
-  for (let uid = 11; uid <= 400; uid += 1) {
+  for (let uId = 11; uId <= 400; uId += 1) {
     const username = faker.internet.userName();
     const userav = faker.image.avatar();
 
     users.push({
-      uid,
+      uId,
       username,
       userav,
     });
   }
   return users;
 };
+
+// const dataArr = generateBiz();
+// const dataObj = generateBiz();
+// const photoArr = generatePhoto();
+// const photoObj = generatePhoto();
+// const userObj = generateUser();
+// fs.writeFileSync('bizData.json', JSON.stringify(dataArr, null, '\t'));
+// fs.writeFileSync('bizData.json', JSON.stringify(dataObj, null, '\t'));
+// fs.writeFileSync('photoData.json', JSON.stringify(photoObj, null, '\t'));
+// fs.writeFileSync('userData.json', JSON.stringify(userObj, null, '\t'));
 module.exports = {
   generateBiz,
   generatePhoto,

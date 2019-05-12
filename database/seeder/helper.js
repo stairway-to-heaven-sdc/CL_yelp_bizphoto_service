@@ -17,6 +17,10 @@ module.exports = {
       })
       .catch(err => console.log(err));
   },
+  getBizInfo: async (id) => {
+    const result = await Biz.findOne({ bId: id });
+    return result._doc;
+  },
   insertPhoto: () => {
     Photo.insertMany(generatePhoto())
       .then(() => db.close())

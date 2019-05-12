@@ -1,6 +1,6 @@
 const sampleBiz = [
   {
-    bid: 1,
+    bId: 1,
     bizname: 'Taste of Texas',
     reviewCount: 1380,
     rating: 4.5,
@@ -23,7 +23,7 @@ const sampleBiz = [
     ],
   },
   {
-    bid: 2,
+    bId: 2,
     bizname: 'JINYA Ramen Bar',
     reviewCount: 2660,
     rating: 4.5,
@@ -46,7 +46,7 @@ const sampleBiz = [
     ],
   },
   {
-    bid: 3,
+    bId: 3,
     bizname: 'Snooze, an A.M. Eatery',
     reviewCount: 1943,
     rating: 4,
