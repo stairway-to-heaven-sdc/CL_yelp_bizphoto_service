@@ -3,6 +3,13 @@ const {
 } = require('../index');
 const { generateBiz, generatePhoto, generateUser } = require('./generator');
 
+const asyncForEach = async (array, callback) => {
+  for (let index = 0; index < array.length; index += 1) {
+    // eslint-disable-next-line no-await-in-loop
+    await callback(array[index], index, array);
+  }
+};
+
 module.exports = {
   insertBizData: () => {
     Biz.insertMany(generateBiz())
@@ -32,7 +39,7 @@ module.exports = {
     // eslint-disable-next-line no-underscore-dangle
     return result._doc;
   },
-  getPhotos: async (pid, bid) => {
+  getPhotos: async (pid) => {
     const length = pid + 9;
     let id = pid;
     const result = [];
@@ -72,5 +79,15 @@ module.exports = {
         db.close();
       })
       .catch(err => console.log(err));
+  },
+  getDishPhotos: async (dishes, bid) => {
+    const result = [];
+    await asyncForEach(dishes, async (dish) => {
+      const allPhotos = await Photo.find({ tag: dish });
+      const firstPhoto = allPhotos[0].imgUrl;
+      const photoCount = allPhotos.length;
+      result.push([firstPhoto, photoCount]);
+    });
+    return result;
   },
 };
