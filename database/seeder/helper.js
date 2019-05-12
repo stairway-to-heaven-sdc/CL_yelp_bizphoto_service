@@ -19,12 +19,18 @@ module.exports = {
   },
   getBizInfo: async (id) => {
     const result = await Biz.findOne({ bId: id });
+    // eslint-disable-next-line no-underscore-dangle
     return result._doc;
   },
   insertPhoto: () => {
     Photo.insertMany(generatePhoto())
       .then(() => db.close())
       .catch(err => console.log(err));
+  },
+  getPhotoInfo: async (pid) => {
+    const result = await Photo.findOne({ pId: pid });
+    // eslint-disable-next-line no-underscore-dangle
+    return result._doc;
   },
   removePhoto: () => {
     Photo.deleteMany()
