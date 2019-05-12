@@ -32,6 +32,26 @@ module.exports = {
     // eslint-disable-next-line no-underscore-dangle
     return result._doc;
   },
+  getPhotos: async (pid, bid) => {
+    const length = pid + 9;
+    let id = pid;
+    const result = [];
+    while (id <= length) {
+      // eslint-disable-next-line no-await-in-loop
+      const photo = await Photo.findOne({ pId: id });
+      const photoObj = {
+        pId: photo.pId,
+        imgUrl: photo.imgUrl,
+        uId: photo.uId,
+        bId: photo.bId,
+        text: photo.text,
+        tag: photo.tag,
+      };
+      result.push(photoObj);
+      id += 1;
+    }
+    return result;
+  },
   removePhoto: () => {
     Photo.deleteMany()
       .then((res) => {
