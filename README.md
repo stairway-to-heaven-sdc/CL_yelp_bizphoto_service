@@ -21,7 +21,7 @@
 
 ## API Endpoint
 
-###1 for business info display
+### 1. for business info display
 
 **URL:** /biz/:bId
 
@@ -53,7 +53,7 @@
     ],
   }
 
-###2 for photo display
+### 2. for photo display
 
 **URL:** /biz_photos/:bId/:pId
 
@@ -75,7 +75,7 @@
   ...,photo10_obj
 ]
 
-###3 for individual photo request
+### 3. for individual photo request
 
 **URL:** /biz_photo/:bId/:pId
 
@@ -92,7 +92,7 @@
     tag: 'Tomahawk Ribeye',
   }
 
-###4 for popular dishes
+### 4. for popular dishes
 
 **URL:** /biz_dishes/:bId/:dishes
 
