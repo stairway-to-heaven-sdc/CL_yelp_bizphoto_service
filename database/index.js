@@ -13,7 +13,7 @@ mongoose.connect(mongoDBURI,
 const db = mongoose.connection;
 
 const bizSchema = mongoose.Schema({
-  bid: Number,
+  bId: Number,
   bizname: String,
   reviewCount: Number,
   rating: Number,
@@ -28,16 +28,17 @@ const bizSchema = mongoose.Schema({
 const Biz = mongoose.model('Biz', bizSchema);
 
 const photoSchema = mongoose.Schema({
-  pid: Number,
+  pId: Number,
   imgUrl: String,
-  uid: Number,
+  uId: Number,
+  bId: Number,
   text: String,
   tag: String,
 });
 const Photo = mongoose.model('Photo', photoSchema);
 
 const userSchema = mongoose.Schema({
-  uid: Number,
+  uId: Number,
   userav: String,
   username: String,
 });
