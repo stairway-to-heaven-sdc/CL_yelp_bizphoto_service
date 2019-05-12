@@ -80,7 +80,7 @@ module.exports = {
       })
       .catch(err => console.log(err));
   },
-  getDishPhotos: async (dishes, bid) => {
+  getDishPhotos: async (dishes) => {
     const result = [];
     await asyncForEach(dishes, async (dish) => {
       const allPhotos = await Photo.find({ tag: dish });
@@ -89,5 +89,10 @@ module.exports = {
       result.push([firstPhoto, photoCount]);
     });
     return result;
+  },
+  getUserInfo: async (uid) => {
+    const result = await User.findOne({ uId: uid });
+    // eslint-disable-next-line no-underscore-dangle
+    return result._doc;
   },
 };
