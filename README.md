@@ -22,9 +22,13 @@
 ## API Endpoint
 
 ###1 for business info display
+
 **URL:** /biz/:bId
+
 **Description:** This example retrieves current business detail of the specific business page with first 3 photos
+
 **API Response:**
+
   {
     bId: 1,
     bizname: 'Taste of Texas',
@@ -50,9 +54,13 @@
   }
 
 ###2 for photo display
+
 **URL:** /biz_photos/:bId/:pId
+
 **Description:** This example retrieves 10 photo objects of current business on the business page with it’s related business Id.
+
 **API Response:**
+
 [
   {
     pId: 1,
@@ -68,9 +76,13 @@
 ]
 
 ###3 for individual photo request
+
 **URL:** /biz_photo/:bId/:pId
+
 **Description:** This example retrieves one photo for current business on the business page with it’s related bId
+
 **API Response:**
+
  {
     pId: 1,
     imgUrl: 'https://s3-media4.fl.yelpcdn.com/bphoto/J3kWrFK9vE5oBgREBJ1YQg/ls.jpg',
@@ -81,9 +93,13 @@
   }
 
 ###4 for popular dishes
+
 **URL:** /biz_dishes/:bId/:dishes
+
 **Description:**  This example retrieves the first photo and total photo counts in relation to menu item.
+
 **API Response:**
+
 [
     {
         "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/J3kWrFK9vE5oBgREBJ1YQg/ls.jpg",
