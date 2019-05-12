@@ -3,6 +3,9 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const { db } = require('../database/index.js');
+const {
+  getBizInfo, getPhotoInfo, getPhotos, getDishPhotos, getUserInfo,
+} = require('../database/seeder/helper.js');
 
 const app = express();
 app.use(cors());
@@ -12,6 +15,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 
-app.get('/', (req, res) => res.send('Hello World!'));
+app.get('/biz/:bId', async (req, res) => {
+  try {
+    const result = await getBizInfo(JSON.parse(req.params.bId));
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 
 module.exports = app;
