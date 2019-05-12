@@ -43,4 +43,15 @@ app.get('/users/:uId', async (req, res) => {
   }
 });
 
+// Get 10 photos by requesting pId
+app.get('/biz_photos/:bId/:pId', async (req, res) => {
+  try {
+    const result = await getPhotos(JSON.parse(req.params.pId), JSON.parse(req.params.bId));
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
+
 module.exports = app;
