@@ -28,7 +28,7 @@
 **Description:** This example retrieves current business detail of the specific business page with first 3 photos
 
 **API Response:**
-
+```
   {
     bId: 1,
     bizname: 'Taste of Texas',
@@ -52,7 +52,7 @@
       1, 2, 3,
     ],
   }
-
+```
 ### 2. for photo display
 
 **URL:** /biz_photos/:bId/:pId
@@ -60,7 +60,7 @@
 **Description:** This example retrieves 10 photo objects of current business on the business page with it’s related business Id.
 
 **API Response:**
-
+```
 [
   {
     pId: 1,
@@ -74,7 +74,7 @@
   photo3_obj,
   ...,photo10_obj
 ]
-
+```
 ### 3. for individual photo request
 
 **URL:** /biz_photo/:bId/:pId
@@ -83,6 +83,7 @@
 
 **API Response:**
 
+ ```
  {
     pId: 1,
     imgUrl: 'https://s3-media4.fl.yelpcdn.com/bphoto/J3kWrFK9vE5oBgREBJ1YQg/ls.jpg',
@@ -91,7 +92,7 @@
     text: '38oz!!!!!',
     tag: 'Tomahawk Ribeye',
   }
-
+```
 ### 4. for popular dishes
 
 **URL:** /biz_dishes/:bId/:dishes
@@ -99,7 +100,7 @@
 **Description:**  This example retrieves the first photo and total photo counts in relation to menu item.
 
 **API Response:**
-
+```
 [
     {
         "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/J3kWrFK9vE5oBgREBJ1YQg/ls.jpg",
@@ -112,7 +113,7 @@
         "dish": "Center Cut Filet"
     }
 ]
-
+```
 
 ## Requirements
 
