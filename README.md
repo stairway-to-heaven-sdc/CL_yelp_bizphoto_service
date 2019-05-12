@@ -84,7 +84,18 @@
 **URL:** /biz_dishes/:bId/:dishes
 **Description:**  This example retrieves the first photo and total photo counts in relation to menu item.
 **API Response:**
-
+[
+    {
+        "imgUrl": "https://s3-media4.fl.yelpcdn.com/bphoto/J3kWrFK9vE5oBgREBJ1YQg/ls.jpg",
+        "photoCount": 1,
+        "dish": "Tomahawk Ribeye"
+    },
+    {
+        "imgUrl": "https://s3-media3.fl.yelpcdn.com/bphoto/L38qQjyzPvt53aJ5sTj4sg/ls.jpg",
+        "photoCount": 1,
+        "dish": "Center Cut Filet"
+    }
+]
 
 
 ## Requirements
