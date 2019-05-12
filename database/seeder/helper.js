@@ -82,12 +82,13 @@ module.exports = {
   },
   getDishPhotos: async (dishes) => {
     const result = [];
-    await asyncForEach(dishes, async (dish) => {
-      const allPhotos = await Photo.find({ tag: dish });
+    await asyncForEach(dishes, async (item) => {
+      const allPhotos = await Photo.find({ tag: item });
       const firstPhoto = allPhotos[0].imgUrl;
       const photoCount = allPhotos.length;
-      result.push([firstPhoto, photoCount]);
+      result.push({ imgUrl: firstPhoto, photoCount, dish: item });
     });
+
     return result;
   },
   getUserInfo: async (uid) => {
