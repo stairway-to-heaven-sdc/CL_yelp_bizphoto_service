@@ -33,4 +33,14 @@ app.get('/biz_photo/:bId/:pId', async (req, res) => {
   }
 });
 
+// Get user info by requesting uId
+app.get('/users/:uId', async (req, res) => {
+  try {
+    const result = await getUserInfo(JSON.parse(req.params.uId));
+    res.status(200).send(result);
+  } catch (err) {
+    res.status(400).send(err);
+  }
+});
+
 module.exports = app;
