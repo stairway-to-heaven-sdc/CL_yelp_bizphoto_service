@@ -55,10 +55,8 @@ app.get('/biz_photos/:bId/:pId', async (req, res) => {
 
 // Get first photo and total photo counts by requesting dish menu
 app.get('/biz_dishes/:bId/:dishes', async (req, res) => {
-  console.log(JSON.parse(req.params.dishes));
   try {
     const result = await getDishPhotos(JSON.parse(req.params.dishes), JSON.parse(req.params.bId));
-    console.log(result);
     res.status(200).send(result);
   } catch (err) {
     res.status(400).send(err);

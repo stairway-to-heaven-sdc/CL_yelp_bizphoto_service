@@ -71,7 +71,7 @@ const generateBiz = () => {
     const city = faker.address.city(3);
     const state = faker.address.stateAbbr();
     const zipcode = faker.address.zipCode('#####');
-    const neiborhood = nhood;
+    const neighborhood = nhood;
     const latitude = Number(faker.address.latitude());
     const longitude = Number(faker.address.longitude());
     const locObj = {
@@ -80,7 +80,7 @@ const generateBiz = () => {
       city,
       state,
       zipcode,
-      neiborhood,
+      neighborhood,
       latitude,
       longitude,
     };
