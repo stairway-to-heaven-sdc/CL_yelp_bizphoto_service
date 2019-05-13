@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb://localhost/test';
+const url = 'mongodb://localhost';
 const mongoDBURI = process.env.MONGOLAB_URI || url;
 
 mongoose.connect(mongoDBURI,
@@ -13,7 +13,7 @@ mongoose.connect(mongoDBURI,
 const db = mongoose.connection;
 
 const bizSchema = mongoose.Schema({
-  bid: Number,
+  bId: Number,
   bizname: String,
   reviewCount: Number,
   rating: Number,
@@ -28,16 +28,24 @@ const bizSchema = mongoose.Schema({
 const Biz = mongoose.model('Biz', bizSchema);
 
 const photoSchema = mongoose.Schema({
-  pid: Number,
+  pId: Number,
   imgUrl: String,
-  userName: String,
-  userAv: String,
+  uId: Number,
+  bId: Number,
   text: String,
   tag: String,
 });
-const photo = mongoose.model('photo', photoSchema);
+const Photo = mongoose.model('Photo', photoSchema);
+
+const userSchema = mongoose.Schema({
+  uId: Number,
+  userav: String,
+  username: String,
+});
+const User = mongoose.model('User', userSchema);
 module.exports = {
   Biz,
-  photo,
+  Photo,
+  User,
   db,
 };
