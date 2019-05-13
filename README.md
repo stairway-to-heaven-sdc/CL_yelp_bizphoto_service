@@ -42,7 +42,7 @@
       city: 'Houston',
       state: 'TX',
       zipcode: '77024',
-      neiborhood: 'Memorial',
+      neighborhood: 'Memorial',
       latitude: 29.7827412984213,
       longitude: -95.556758998672,
     },
