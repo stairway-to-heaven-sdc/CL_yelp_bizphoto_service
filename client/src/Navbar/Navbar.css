@@ -1,0 +1,5 @@
+.navbar {
+  display: table;
+  min-width: 100%;
+  table-layout: auto
+}
