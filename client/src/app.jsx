@@ -6,7 +6,9 @@ import './app.css';
 const App = () => (
   <div className="biz-detail">
     <Topbar />
-    <Topshelf />
+    <div className="main-content-wrap--full">
+      <Topshelf />
+    </div>
   </div>
 );
 

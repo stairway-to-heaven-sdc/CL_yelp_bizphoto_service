@@ -1,0 +1,7 @@
+.biz-page-subheader {
+  display: table
+}
+.biz-page-subheader .mapbox-container,.biz-page-subheader .showcase-container {
+  display: table-cell;
+  vertical-align: middle
+}

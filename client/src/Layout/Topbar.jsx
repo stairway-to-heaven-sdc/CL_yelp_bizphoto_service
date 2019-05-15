@@ -7,7 +7,7 @@ const Topbar = () => (
   <div className="page-header">
     <div className="main-header_wrapper">
       <div className="main-header">
-        <div className="main-content-wrapper">
+        <div className="main-content-wrap">
           <Topcontent />
         </div>
       </div>
