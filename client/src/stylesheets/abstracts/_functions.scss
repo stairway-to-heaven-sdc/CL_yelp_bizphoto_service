@@ -1,0 +1,26 @@
+
+/// to get fontset from map
+@function _fontset-feature($family, $feature, $set: 'small'){
+  $result: map-get(map-get($family, $set), $feature);
+  @return($result);
+}
+
+/// font size
+@function calc-font-size($family, $set) {
+  @return _fontset-feature($family, font-size, $set);
+}
+
+/// line height
+@function calc-line-height($family, $set) {
+  @return _fontset-feature($family, line-height, $set);
+}
+
+/// get z index
+@function z($key) {
+  @if map-has-key($z-layers, $key) {
+    @return map-get($z-layers, $key);
+  }
+
+  @warn "Unknown `#{$key}` in $z-layers.";
+  @return null;
+}
