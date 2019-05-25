@@ -1,0 +1,83 @@
+// @import '../abstracts/functions', '../abstracts/mixins', '../abstracts/variables';
+// @import './flexbox';
+/** Topbar Addon */
+.header-addons-wrapper {
+  @include font-scale(addons, $font-map);
+  @include padding(3px, 0, 3px, 0);
+  min-width: $wrapper-width;
+  z-index: z(addons);
+
+  background: #bd1f1f;
+  text-align: center;
+  font-weight: bold;
+  & .header-link {
+    color: #fff
+  }
+}
+/// header main section wrapper
+.header-main-wrapper {
+  @include padding(12px, 0, 12px, 0);
+  @include pos(null, null, null, null, relative);
+  background: #d32323;
+}
+
+/// header main section
+.header-main {
+  min-width: $wrapper-width;
+  .header-main__link,
+  .header-main__text {
+    padding: 12px;
+    line-height: 11px
+  }
+}
+
+/** wrapper of searchbar */
+//main-header_search-container
+
+/** notification area of header*/
+.header-main__notify {
+  @include margin(null, -6px, null, -6px);
+  & .header-main__link {
+    @include padding(6px, 6px, 6px, 6px);
+    display: inline-block;
+    position: relative;
+  }
+  .header-main__link:hover {
+    background: #a71c1c;
+  }
+}
+.header-main__link {
+  @include border-radius(3px);
+}
+
+//havnen't implemented text in header main section
+.header-main__link,
+ .header-main__text {
+  color: #fff;
+  display: block;
+  padding: 3px 15px;
+  font-size: 13px;  //map
+  line-height: 1.38462em; //overwrite by 21px
+  font-weight: bold;
+  line-height: 21px; //map
+}
+
+/// main header account area
+.header-main__account {
+  @include floatbox(58px, null, right, null);
+}
+
+.user-account__avatar {
+  @include border-radius(2px 0 0 2px);
+  @include floatbox(36px, 36px, left, border-box);
+  overflow: hidden;
+  img {
+    @include box(100%, 100%);
+  }
+}
+.icon {
+  &.user-account__button-arrow {
+    top: 6px
+  }
+}
+
