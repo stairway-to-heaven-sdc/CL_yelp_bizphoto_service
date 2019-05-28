@@ -8,7 +8,7 @@ const Warbtn = () => (
   >
     <span
       style={{ width: '24px', height: '24px' }}
-      className="icon icon--currentColor u-space-r-half"
+      className="icon icon--size-24 icon--currentColor u-space-r-half"
     >
       <Icon name="24x24_star" />
     </span>

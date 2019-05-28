@@ -11,9 +11,9 @@ const Modal = ({ hide }) => {
         <div className="modal_inner" ref={modalRef}>
           <div className="modal_close" role="button" onClick={hide}>&times;</div>
           <div className="modal_dialog" role="dialog">
-            <div className="save-to-collection-modal">
-              <div className="collection-list u-vertical-scrollbar">
-                <ul className="ylist ylist-bordered">
+            <div className="save-modal">
+              <div className="save-list">
+                <ul className="list">
                   <li>
                     <div className="media-block">
             Test

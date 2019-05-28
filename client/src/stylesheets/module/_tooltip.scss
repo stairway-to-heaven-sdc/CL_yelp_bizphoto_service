@@ -1,0 +1,179 @@
+/// biz left for Claim status*/
+.claim-status_teaser {
+  font-size: 14px;
+  display: inline-block
+}
+
+.claim-status_icon {
+  vertical-align: text-bottom
+}
+
+.claim-status-hover-content {
+  position:fixed;
+  /* position: relative; */
+  text-align:center;
+  .top { ///display on top
+    width: 300px;
+    min-height: 55px;
+    white-space: normal;
+    top:8px;
+    left:50%;
+    transform:translate(-10%, -100%);
+    padding:10px 20px;
+    color:#444444;
+    background-color:#FFFFFF;
+    border-radius:5px;
+    position:absolute;
+    z-index:999999;
+    box-sizing:border-box;
+    border:1px solid #BBBBBB;
+    box-shadow:0 1px 8px #CCCCCC;
+    /* visibility: hidden; */
+    display: none;
+    i {
+      position:absolute;
+      top:100%;
+      left:10%;
+      margin-left:-12px;
+      width:24px;
+      height:12px;
+      overflow:hidden;
+
+      &::after {
+        content:'';
+        position:absolute;
+        width:12px;
+        height:12px;
+        left:50%;
+        transform:translate(-50%,-50%) rotate(45deg);
+        background-color:#FFFFFF;
+        border:1px solid #BBBBBB;
+        box-shadow:0 1px 8px #CCCCCC;
+      }
+    }
+  }
+  &:hover  .top {
+    display:inline-block;
+  }
+}
+
+/// Customize for claim icon
+.claim-padding {
+  margin-left: 90px;
+  padding-bottom:18px;
+}
+
+/** detail tooltip*/
+
+.chiclet-link {
+  display: inline-block;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  @include font-scale(small, $font-map);
+  color: #999;
+  background: transparent;
+  box-shadow: none;
+  white-space: nowrap;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease
+}
+.chiclet-link:hover {
+  text-decoration: none;
+  color: #333;
+  // border-color: #cdcdcd;
+  border-color: rgba(0,0,0,0.2);
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,0.1),inset 0 1px 0 rgba(255,255,255,0.5);
+  box-shadow: 0 1px 1px rgba(0,0,0,0.1),inset 0 1px 0 rgba(255,255,255,0.5)
+}
+
+.chiclet-link:hover,.chiclet-link:focus {
+  background: #f8f8f8;
+  background: -webkit-linear-gradient(#fff, #eee);
+  background: linear-gradient(#fff, #eee)
+}
+
+.chiclet-link:active {
+  background: #eee;
+  background: -webkit-linear-gradient(#f0f0f0, #fff);
+  background: linear-gradient(#f0f0f0, #fff)
+}
+
+.chiclet-link-text {
+  padding: 0 6px
+}
+
+.show-tooltip {
+  position: relative
+}
+
+.tooltip-wrapper {
+  position: absolute;
+  left: -9999px;
+  bottom: 100%;
+  width: 250px;
+  margin-left: -125px;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: none
+}
+
+.show-tooltip:hover .tooltip-wrapper {
+  left: 50%
+}
+
+.tooltip {
+  display: inline-block;
+  position: relative;
+  padding: 6px 9px;
+  z-index: 4;
+  vertical-align: middle;
+  white-space: normal;
+  font-size: 12px;   //map
+  pointer-events: none;
+  font-weight: bold;
+  line-height: 18px;  //map
+  background: #333;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  border-radius: 5px;
+  text-shadow: none;
+  text-align: left;
+  cursor: default; //default
+  -webkit-box-shadow: 0 1px rgba(255,255,255,0.1);
+  box-shadow: 0 1px rgba(255,255,255,0.1)
+}
+
+.tooltip::after {
+  display: block;
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  border: 7px solid transparent;
+  margin: auto;
+  z-index: 5;
+  left: 50%;
+  top: 100%;
+  right: auto;
+  bottom: auto;
+  margin-left: -7px;
+  border-top-color: rgba(0,0,0,0.8)
+}
+
+.tooltip::before {
+  display: block;
+  position: absolute;
+  content: " ";
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  margin: auto;
+  z-index: 5;
+  left: 50%;
+  top: 100%;
+  right: auto;
+  bottom: auto;
+  margin-left: -8px;
+  border-top-color: rgba(255,255,255,0.1)
+}

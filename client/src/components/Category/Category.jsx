@@ -6,13 +6,13 @@ const Category = ({ price, category }) => (
       <span className="price-range">{price}</span>
     </span>
     <span className="category-list">
-      {` ${category.join(', ')}`}
+      {` ${category.join(', ')} `}
     </span>
     <a
       href="https://www.yelp.com"
-      className="edit-business-button chiclet-link chiclet-link--with-text"
+      className="chiclet-link chiclet-link-text"
     >
-    Edit
+      Edit
     </a>
   </div>
 );
