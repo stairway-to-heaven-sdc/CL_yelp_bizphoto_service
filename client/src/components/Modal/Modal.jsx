@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
-import useClickOutside from '../lib/useClickOutside';
+import useClickOutside from '../../lib/useClickOutside';
 // TODO: customize content
 const Modal = ({ hide }) => {
   const modalRef = useRef(null);

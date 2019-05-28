@@ -1,6 +1,6 @@
 
 import React from 'react';
-import Yelp from '../Button/Yelp';
+import Logo from '../Logo/Logo';
 import Searchbar from '../Searchbar/Searchbar';
 import Toplink from '../Toplink/Toplink';
 import Useract from '../Dropdown/Useract';
@@ -8,7 +8,7 @@ import Useract from '../Dropdown/Useract';
 const Mainbar = () => (
   <div className="l-content">
     <div className="grid grid--18 grid--middle">
-      <Yelp />
+      <Logo />
       <Searchbar />
       <div className="grid_unit">
         <div className="header-main__notify u-nowrap">
