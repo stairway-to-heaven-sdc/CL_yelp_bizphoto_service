@@ -1,7 +1,7 @@
 
 import React from 'react';
-import Mapbox from '../mapbox/Mapbox';
-import Showcase from '../showcase/Showcase';
+import Mapbox from '../Mapbox/Mapbox';
+import Showcase from '../Showcase/Showcase';
 
 const Bizmain = () => (
   <div className="biz-main">

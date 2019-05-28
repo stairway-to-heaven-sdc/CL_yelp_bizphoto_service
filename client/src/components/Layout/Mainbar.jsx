@@ -2,8 +2,7 @@
 import React from 'react';
 import Yelp from '../Button/Yelp';
 import Searchbar from '../Searchbar/Searchbar';
-import Msg from '../Link/Msg';
-import Notify from '../Link/Notify';
+import Toplink from '../Toplink/Toplink';
 import Useract from '../Dropdown/Useract';
 
 const Mainbar = () => (
@@ -13,8 +12,8 @@ const Mainbar = () => (
       <Searchbar />
       <div className="grid_unit">
         <div className="header-main__notify u-nowrap">
-          <Msg />
-          <Notify />
+          <Toplink name="24x24_speech" />
+          <Toplink name="24x24_notification" />
         </div>
       </div>
       <div className="grid_unit">

@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../icon/Icon';
+import Icon from '../Icon/Icon';
 
 const Addon = () => (
   <div className="header-addons-wrapper clearfix">
