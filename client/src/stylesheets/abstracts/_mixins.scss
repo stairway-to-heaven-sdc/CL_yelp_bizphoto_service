@@ -1,0 +1,307 @@
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass mixins.
+// -----------------------------------------------------------------------------
+@import './variables',
+'./functions';
+//@import '../../../../node_modules/bourbon/core/bourbon';
+/// Event wrapper
+/// @param {Bool} $self [false] - Whether or not to include current selector
+@mixin on-event($self: false) {
+  @if $self {
+    &,
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  } @else {
+    &:hover,
+    &:active,
+    &:focus {
+      @content;
+    }
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @param {String} $context
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+///create box
+@mixin box($width, $height, $background:null, $position:null) {
+  width: $width;
+  height: $height;
+  background-color: $background;
+  position: $position;
+}
+/// create float box
+@mixin floatbox($width, $height, $float, $boxsizing:null) {
+  width: $width;
+  height: $height;
+  float: $float;
+  box-sizing: $boxsizing;
+}
+
+/// vertical center
+@mixin vertical-center-4 {
+  display: table;
+  min-width: 100%;
+  table-layout: auto;
+
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+
+    > * { margin: 0 auto; }
+  }
+}
+///
+
+
+
+/// partion table increased by 1/3
+@mixin vertical-center-table-3($children...) {
+  display: table;
+  @for $i from 1 through length($children) {
+    #{nth($children, $i)} {
+      display: table-cell;
+      vertical-align: middle;
+      width: $i * 1/3 * 100%;
+    }
+  }
+}
+
+//Insert background image
+/// @param {String} $name
+/// @param {String} $imgUrl
+/// @param {Number} $size
+@mixin create-img($name, $imgUrl, $size) {
+  #{$name} {
+    background:url($imgUrl) no-repeat;
+    background-size: $size;
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+
+///insert logo
+
+///add width to component
+///global wrapper width
+
+
+//generate basic wrapper
+
+//center position
+
+
+//animation for show case
+
+///get font size and line height
+@mixin font-scale(
+  $font-key,
+  $family:$font-map) {
+  font-size: calc-font-size($family, $font-key);
+  line-height: calc-line-height($family, $font-key);
+}
+
+/// Absolute positioned
+@mixin pos ($top: auto, $right: auto, $bottom: auto, $left: auto, $position: absolute) {
+  // @if $top == null and
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  position: $position;
+}
+
+// .fontfun {
+//   @include font-scale(tooltip, $font-map);
+// }
+/// set Border property
+@mixin border($var-direction: "border", $var-width: $border-width, $var-color: $border-color) {
+  @if $var-direction == 'border'{
+      border: $var-width solid $var-color;
+  }
+  @if $var-direction == 'border-bottom'{
+      border-bottom: $var-width solid $var-color;
+  }
+  @if $var-direction == 'border-top'{
+      border-top: $var-width solid $var-color;
+  }
+  @if $var-direction == 'border-right'{
+      border-right: $var-width solid $var-color;
+  }
+  @if $var-direction == 'border-left'{
+      border-left: $var-width solid $var-color;
+  }
+  @if $var-direction == 'border-tb'{
+      border-bottom: $var-width solid $var-color;
+      border-top:    $var-width solid $var-color;
+  }
+  @if $var-direction == 'border-lr'{
+      border-left:  $var-width solid $var-color;
+      border-right: $var-width solid $var-color;
+  }
+  @if $var-direction == 'border-no-top'{
+      border:     $var-width solid $var-color;
+      border-top: none;
+  }
+  @if $var-direction == 'border-no-bottom'{
+      border:        $var-width solid $var-color;
+      border-bottom: none;
+  }
+}
+//insert quick padding/margin
+///Padding mixin
+@mixin padding($top:null, $right:null, $bottom:null, $left:null) {
+  padding-top: $top;
+  padding-right: $right;
+  padding-bottom: $bottom;
+  padding-left: $left;
+}
+/// import from compass
+@mixin space($type:margin, $direction:all, $amount:$medium){
+	@if $type == padding {
+		@if $direction == all{
+			padding: $amount;
+		} @else if $direction == top {
+			padding-top:$amount
+		} @else if $direction == left {
+			padding-left:$amount
+		} @else if $direction == right {
+			padding-right:$amount
+		} @else {
+			padding-bottom:$amount
+		}
+	} @else {
+		@if $direction == all{
+			margin: $amount;
+		} @else if $direction == top {
+			margin-top:$amount
+		} @else if $direction == left {
+			margin-left:$amount
+		} @else if $direction == right {
+			margin-right:$amount
+		} @else {
+			margin-bottom:$amount
+		}
+	}
+}
+
+///Margin mixin
+@mixin margin($top:null, $right:null, $bottom:null, $left:null) {
+  margin-top: $top;
+  margin-right: $right;
+  margin-bottom: $bottom;
+  margin-left: $left;
+}
+/// truncate for text overflow
+@mixin truncateText($overflow: ellipsis){
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: $overflow; // values are: clip, ellipsis, or a string
+}
+///border radius
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+  background-clip: padding-box;  //it is extra
+  /* stops bg color from leaking outside the border: */
+}
+
+// Single side border-radius
+
+@mixin border-top-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+   -webkit-border-top-left-radius: $radius;
+   border-top-left-radius: $radius;
+   background-clip: padding-box;
+}
+@mixin border-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+     -webkit-border-top-right-radius: $radius;
+     border-top-right-radius: $radius;
+     background-clip: padding-box;
+}
+@mixin border-bottom-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+   -webkit-border-bottom-left-radius: $radius;
+   border-bottom-left-radius: $radius;
+   background-clip: padding-box;
+}
+@mixin border-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+     -webkit-border-top-left-radius: $radius;
+     border-top-left-radius: $radius;
+     background-clip: padding-box;
+}
+
+
+
+/// Pseudo for ::before and ::after
+@mixin pseudo($display: block, $pos: absolute, $content: ''){
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+// .fog::after {
+//   @include pseudo;
+//   top: -1rem; left: -1rem;
+//   width: 1rem; height: 1rem;
+// }
+
+
+//create utility
+
+
+
+
+///Test Area
+.test2 {
+  color: white;
+  @include padding(20px,null, null, null);
+}
+.test {
+  width: 132px;
+  height: 24px;
+  @include when-inside('.test2') {
+    background-color: white;
+  };
+}
+
+
+//create icon
+@mixin corner-icon($name, $top-or-bottom, $left-or-right) {
+  .icon-#{$name} {
+    background-image: url("/icons/#{$name}.svg");
+    position: absolute;
+    #{$top-or-bottom}: 0;
+    #{$left-or-right}: 0;
+  }
+}
+///config icon colors
+@mixin config-icon-colors($prefix, $colors...) {
+  @each $i in $colors {
+      .#{$prefix}#{nth($i, 1)} {
+          color: nth($i, 2);
+      }
+  }
+}
+
+@include config-icon-colors('oo-icon-',
+  'save'   green,
+  'cancel' gray,
+  'delete' red
+);
+
+@include corner-icon("mail", top, left);

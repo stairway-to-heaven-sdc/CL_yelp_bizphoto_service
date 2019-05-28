@@ -1,0 +1,127 @@
+
+// -----------------------------------------------------------------------------
+// This file contains all application-wide Sass variables.
+// -----------------------------------------------------------------------------
+
+
+/// Regular font family
+/// @type List
+$text-font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+/// Code (monospace) font family
+/// @type List
+$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
+
+/// color
+/// @type Color
+$black: #333333 !default;
+$brand-color: #d32323 !default;
+$blue :#0073bb !default;
+$medium-background-color: #e6e6e6 !default;
+$background-color: #f5f5f5 !default;
+$embossed-white:  rgba(255,255,255,0.7) !default;
+$white: white !default;
+$border-color:#cccccc !default;
+$light-border-color:#e6e6e6;
+$link-color: #0073bb !default;
+$normal-text: #333333 !default;
+$photo-text: rgba(225, 225, 225, 0.9);
+
+///font-size
+/// @type Length
+$base-font-size: 14px;
+$large-font-size:36px;
+$h1-font-size:30px;
+$h3-font-size:16px;
+$navlink-font-size:13px;
+$small-font-size:12px;
+
+/// configure font size and line-height with each typeface thru map
+///line-height
+/// @type Length
+$base-line-height: 1.28571em;
+$font-map : (
+  addons: (
+    font-size: 12px,
+    line-height: 1.75em
+  ),
+  header-main: (
+    font-size: 13px,
+    line-height: 21px
+  ),
+  biztop: (
+    font-size: 16px,
+    line-height: 1.3125em
+  ),
+  large: (
+    font-size: 36px,
+    line-height: 1.16667em
+  ),
+  small: (
+    font-size: 12px,
+    line-height: 1.5em
+  ),
+  photo-memo: (
+    font-size: 12px,
+    line-height: 1.5em
+  ),
+  m-btn: (
+    font-size: 14px,
+    line-height: 1.28571em
+  ),
+  m-btn-small: (
+    font-size: 12px,
+    line-height: 1.5em
+  ),
+  chiclet-link: (
+    font-size: 12px,
+    line-height: 1.5em
+  ),
+  tooltip: (
+    font-size: 12px,
+    line-height: 18px
+  )
+);
+
+
+
+/// Container's width
+/// @type Length
+$content-width: 960px !default;
+$wrapper-width: 1020px !default;
+$container-width: 990px !default;
+// $max-width: 1180px !default;
+
+/// Padding size
+/// @type Length
+$padding-15: 15px;
+
+
+
+///z-index map
+$z-layers: (
+    bottomless-pit: 99999,
+    default: 1,
+    bg-grey: -1,
+    addons: 9,
+    dropdown: 1011 !important,
+    showcase: 1000,
+    hover-photo: 1001,
+    // showcase-nav: 1002,
+    modal: 10
+)
+
+
+
+
+
+
+
+
+/// Breakpoints map
+// /// @prop {String} keys - Keys are identifiers mapped to a given length
+// /// @prop {Map} values - Values are actual breakpoints expressed in pixels
+// $breakpoints: (
+//   'small': 320px,
+//   'medium': 768px,
+//   'large': 1024px,
+// ) !default;
