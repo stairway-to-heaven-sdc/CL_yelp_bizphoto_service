@@ -84,7 +84,7 @@
     @include pos(-9999px, -9999px, 0, -9999px);
   }
   .showcase-wrapper {
-    .showcase-inner {
+    .showcase{
       @include box(660px, 220px, null, relative);
     }
   }

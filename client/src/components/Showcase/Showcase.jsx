@@ -31,7 +31,7 @@ const Showcase = () => {
   const slideTwo = media.slice(0, len - 1);
   const slideThree = media.slice(1);
   return (
-    <div className="showcase-inner showcase">
+    <div className="showcase">
       <div className="biz__grey" />
       <div className="showcase-footer">
         <Watchvid />
