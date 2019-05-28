@@ -1,9 +1,9 @@
 import React from 'react';
 import { useBiz } from '../../context/biz-context';
-import Claim from '../tooltip/Claim';
-import Rating from '../rating/Rating';
-import Detail from '../tooltip/Detail';
-import Category from '../category/Category';
+// import Claim from '../Tooltip/Claim';
+import Rating from '../Rating/Rating';
+// import Detail from '../Tooltip/Detail';
+import Category from '../Category/Category';
 // render biz info
 const Bizleft = () => {
   const {
