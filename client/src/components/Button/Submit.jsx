@@ -10,7 +10,7 @@ const Submit = () => (
       title="Search"
     >
       <span className="main-search_action-icon-wrap">
-        <span style={{ width: '24px', height: '24px' }} className="icon con--size-24 icon--inverse icon--fallback-inverted">
+        <span style={{ width: '24px', height: '24px' }} className="icon icon--inverse">
           <Icon name="24x24_search" />
         </span>
       </span>

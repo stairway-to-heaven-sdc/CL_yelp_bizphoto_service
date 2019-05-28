@@ -1,0 +1,88 @@
+/** bullet point */
+@import '../abstracts/variables', '../abstracts/mixins';
+.bullet::after {
+  @include pseudo(inline-block, relative, "\A0\2022\A0");
+  @include margin(0, 3px, 0, 3px);
+  @include font-scale(bullet, $font-map);
+  top: -1px;
+  color: #999;
+}
+/** main icon */
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+  top: -.1em;
+  fill: #666;
+  &::before {
+    @include pseudo();
+    left: 0;
+  }
+  &::after {
+    @include pseudo();
+    @include pos(0,0,0,0);
+  }
+}
+/** icon with svg*/
+.icon_svg{
+  fill: inherit;
+  display: block;
+  @include box(100%, 100%);
+  @include pos(0, 0, 0, 0);
+}
+
+.icon--nav { //no need another icon
+  @extend .icon;
+}
+.icon--inverse {
+  fill: #fff;
+}
+
+.icon--white {
+  fill: #fff;
+}
+.icon--blue-dark {
+  fill: #0073bb;
+}
+
+.icon--linked {
+  fill: #0073bb
+}
+.icon--currentColor {
+  fill: currentColor
+}
+
+// .icon:before {
+//   content: '';
+//   background-color: transparent;
+//   background-position: 0 0;
+//   background-repeat: no-repeat;
+//   background-image: url(https://s3-media3.fl.yelpcdn.com/assets/srv0/svg_icons/fbba6e0f9c7e/assets/sprite.png);
+//   background-image: -webkit-linear-gradient(transparent, transparent),none;
+//   background-image: linear-gradient(transparent, transparent),none
+// }
+
+// @media all and (min-width: 0) {
+//   .icon:before {
+//       background:none
+//   }
+// }
+
+
+
+// .icon_svg {
+//   position: absolute;
+//   width: 100%;
+//   height: 100%
+// }
+
+/**special condition */
+
+
+
+// [class*="icon--active-"].is-active .icon,
+// [class*="icon--hover-"]:hover .icon,
+// [class*="icon--hover-"]:focus .icon {
+//   fill: inherit
+// }

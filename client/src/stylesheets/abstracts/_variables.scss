@@ -3,7 +3,6 @@
 // This file contains all application-wide Sass variables.
 // -----------------------------------------------------------------------------
 
-
 /// Regular font family
 /// @type List
 $text-font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
@@ -79,6 +78,10 @@ $font-map : (
   tooltip: (
     font-size: 12px,
     line-height: 18px
+  ), 
+  bullet: (
+    font-size: 10px,
+    line-height:18px
   )
 );
 

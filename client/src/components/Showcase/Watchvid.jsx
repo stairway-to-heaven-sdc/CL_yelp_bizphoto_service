@@ -6,7 +6,7 @@ const Watchvid = () => (
   <span className="play-video u-pull-left">
     <span
       style={{ width: '18px', height: '18px' }}
-      className="icon icon--size-18 u-space-r-half"
+      className="icon u-space-r-half"
     >
       <Icon name="18x18_play_badged" />
     </span>

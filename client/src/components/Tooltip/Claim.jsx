@@ -6,7 +6,7 @@ const Claim = () => (
     <div className="claim-padding" />
     <span
       style={{ width: '18px', height: '18px' }}
-      className="icon icon--size-18 icon--blue-dark claim-status_icon u-space-r1"
+      className="icon icon--blue-dark claim-status_icon u-space-r1"
     >
       <Icon name="18x18_checkmark_badged" />
     </span>

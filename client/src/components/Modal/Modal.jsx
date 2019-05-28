@@ -15,7 +15,7 @@ const Modal = ({ hide }) => {
               <div className="collection-list u-vertical-scrollbar">
                 <ul className="ylist ylist-bordered">
                   <li>
-                    <div className="media-block media-block--12">
+                    <div className="media-block">
             Test
                     </div>
                   </li>

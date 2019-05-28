@@ -10,7 +10,7 @@ const Maptext = ({
       <li className="u-relative">
         <span
           style={{ width: '18px', height: '18px' }}
-          className="icon icon--size-18 u-absolute u-sticky-top"
+          className="icon u-absolute u-sticky-top"
         >
           <Icon name="18x18_marker" />
         </span>
@@ -20,7 +20,7 @@ const Maptext = ({
         >
           <span
             style={{ width: '14px', height: '14px' }}
-            className="icon icon--size-14 icon--linked u-space-r-half"
+            className="icon icon--linked u-space-r-half"
           >
             <Icon name="14x14_pencil" />
           </span>
@@ -45,7 +45,7 @@ const Maptext = ({
         <div>
           <span
             style={{ width: '18px', height: '18px' }}
-            className="icon icon--size-18"
+            className="icon"
           >
             <Icon name="18x18_directions" />
           </span>
@@ -60,20 +60,20 @@ const Maptext = ({
       <li>
         <span
           style={{ width: '18px', height: '18px' }}
-          className="icon icon--size-18"
+          className="icon"
         >
           <Icon name="18x18_phone" />
         </span>
-        <span className="biz-phone u-space-l2">{phone}</span>
+        <span className="u-space-l2">{phone}</span>
       </li>
       <li>
         <span
           style={{ width: '18px', height: '18px' }}
-          className="icon icon--size-18"
+          className="icon"
         >
           <Icon name="18x18_external_link" />
         </span>
-        <span className="biz-website u-space-l2">
+        <span className="u-space-l2">
           <a href={url} target="_blank" rel="noopener noreferrer">{url}</a>
         </span>
       </li>
@@ -81,22 +81,22 @@ const Maptext = ({
         {/* <li className="u-relative"> */}
         <span
           style={{ width: '18px', height: '18px' }}
-          className="icon icon--size-18"
+          className="icon"
         >
           <Icon name="18x18_speech" />
         </span>
-        <span className="message-to-biz u-space-l2">Message the business</span>
+        <span className="u-space-l2">Message the business</span>
       </li>
       <li>
         {/* <li className="clearfix"> */}
         <div>
           <span
             style={{ width: '18px', height: '18px' }}
-            className="icon icon--size-18"
+            className="icon"
           >
             <Icon name="18x18_mobile" />
           </span>
-          <span className="biz-to-phone u-space-l2">Send to your Phone</span>
+          <span className="u-space-l2">Send to your Phone</span>
         </div>
       </li>
     </ul>

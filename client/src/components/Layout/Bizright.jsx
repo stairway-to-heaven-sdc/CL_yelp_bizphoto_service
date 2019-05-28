@@ -10,13 +10,13 @@ const Bizright = () => (
       <span className="m-btn-group clearfix u-flex">
         <ActBtn
           style={{ width: '18px', height: '18px' }}
-          className="icon icon--size-18 icon--currentColor"
+          className="icon icon--currentColor"
           name="18x18_add_photo"
           text="Add photo"
         />
         <ActBtn
           style={{ width: '18px', height: '18px' }}
-          className="icon icon--size-18 icon--currentColor"
+          className="icon icon--currentColor"
           name="18x18_share"
           text="Share"
         />

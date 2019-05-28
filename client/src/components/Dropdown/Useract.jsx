@@ -15,7 +15,7 @@ const Useract = () => (
               width="90"
             />
           </span>
-          <span style={{ width: '14px', height: '14px' }} className="icon icon--size-14 icon--inverse icon--fallback-inverted u-triangle-direction-down user-account__button-arrow">
+          <span style={{ width: '14px', height: '14px' }} className="icon icon--inverse user-account__button-arrow">
             <Icon name="14x14_triangle_down" />
           </span>
         </span>

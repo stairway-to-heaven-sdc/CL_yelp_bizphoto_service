@@ -6,7 +6,7 @@ const Navleft = ({ name, classlabel, clickFunc }) => (
     <div className="arrow">
       <span
         style={{ width: '48px', height: '48px' }}
-        className="icon icon--size-48 icon--inverse icon--fallback-inverted"
+        className="icon icon--size-48 icon--inverse"
       >
         <Icon name={name} />
       </span>

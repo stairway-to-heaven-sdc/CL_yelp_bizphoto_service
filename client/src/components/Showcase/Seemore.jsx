@@ -5,7 +5,7 @@ const Seemore = ({ count }) => (
   <a className="see-more u-pull-right" href="https://www.yelp.com">
     <span
       style={{ width: '18px', height: '18px' }}
-      className="icon icon--size-18 u-space-r-half"
+      className="icon u-space-r-half"
     >
       <Icon name="18x18_grid" />
     </span>

@@ -2,8 +2,8 @@ import React from 'react';
 
 const Category = ({ price, category }) => (
   <div className="price-category">
-    <span className="bullet-after">
-      <span className="biz-data price-range">{price}</span>
+    <span className="bullet">
+      <span className="price-range">{price}</span>
     </span>
     <span className="category-list">
       {` ${category.join(', ')}`}
