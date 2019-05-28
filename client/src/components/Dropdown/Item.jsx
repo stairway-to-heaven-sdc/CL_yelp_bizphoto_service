@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '../icon/Icon';
+import Icon from '../Icon/Icon';
 
 const Item = ({ item }) => (
   <li className="header-dropdown-li">

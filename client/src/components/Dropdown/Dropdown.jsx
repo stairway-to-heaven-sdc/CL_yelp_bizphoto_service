@@ -7,13 +7,13 @@ const Dropdown = ({ listL, listR }) => (
     <div className="grid grid--equal">
       <div className="header-dropdown-col grid_unit">
         <ul className="header-dropdown-ul">
-          {listL.map((item, i) => <Item item={item} keys={i} />)
+          {listL.map((item, index) => <Item item={item} key={index} />)
           }
         </ul>
       </div>
       <div className="header-dropdown-col grid_unit">
         <ul className="header-dropdown-ul">
-          {listR.map((item, i) => <Item item={item} keys={i} />)
+          {listR.map((item, j) => <Item item={item} key={j} />)
           }
         </ul>
       </div>

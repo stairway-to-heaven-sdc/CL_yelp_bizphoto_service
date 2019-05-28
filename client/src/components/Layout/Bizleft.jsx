@@ -1,8 +1,8 @@
 import React from 'react';
 import { useBiz } from '../../context/biz-context';
-// import Claim from '../Tooltip/Claim';
+import Claim from '../Tooltip/Claim';
 import Rating from '../Rating/Rating';
-// import Detail from '../Tooltip/Detail';
+import Detail from '../Tooltip/Detail';
 import Category from '../Category/Category';
 // render biz info
 const Bizleft = () => {
