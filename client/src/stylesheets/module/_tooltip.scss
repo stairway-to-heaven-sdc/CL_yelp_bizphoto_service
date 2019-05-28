@@ -123,16 +123,15 @@
 }
 
 .tooltip {
+  @include font-scale(tooltip, $font-map);
   display: inline-block;
   position: relative;
   padding: 6px 9px;
   z-index: 4;
   vertical-align: middle;
   white-space: normal;
-  font-size: 12px;   //map
   pointer-events: none;
   font-weight: bold;
-  line-height: 18px;  //map
   background: #333;
   background: rgba(0,0,0,0.8);
   color: white;
