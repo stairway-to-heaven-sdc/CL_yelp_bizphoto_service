@@ -28,7 +28,7 @@ const useMedia = () => {
       },
       {
         imgUrl: 'https://s3-media1.fl.yelpcdn.com/bphoto/q2E4rONdikCPmCDCoJP-gw/ls.jpg',
-        text: 'test 12312312312ddddd3 wihfa;lsjf weirhoishfl sf',
+        text: 'test 12312312312ddddd3 wihfa;lsjf weirhoishfl scccccccccgggggdf',
       },
     ];
   }

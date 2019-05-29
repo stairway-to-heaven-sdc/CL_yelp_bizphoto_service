@@ -4,25 +4,13 @@ import Arrow from '../Arrow/Arrow';
 import Seemore from './Seemore';
 import Watchvid from './Watchvid';
 import { useMedia } from '../../context/media-context';
+import useIndex from '../../lib/useIndex';
 
-// Todo: add img258...to database for speedy reload pics
-// Todo: feed more data to photos
 const Showcase = () => {
   const media = useMedia();
   console.log('logging here?', process.env.NODE_ENV);
   const len = media.length;
-
-  const [index, setIndex] = useState(0);
-  const handleright = () => {
-    if (index < len - 2) {
-      setIndex(index + 1);
-    }
-  };
-  const handleleft = () => {
-    if (index > 0) {
-      setIndex(index - 1);
-    }
-  };
+  const { index, handleleft, handleright } = useIndex(0, len);
   const slideOne = [];
   slideOne.push(media[len - 1]);
   media.forEach((item, i) => {

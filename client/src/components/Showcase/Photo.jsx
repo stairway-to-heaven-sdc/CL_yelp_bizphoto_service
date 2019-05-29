@@ -34,7 +34,7 @@ const Photo = ({
           </div>
         </div>
         <div className="media-story">
-          <a className="photo-desc" href="https://www.yelp.com">{text}</a>
+          <span className="photo-desc">{text}</span>
           <span className="author">
             {' by '}
             <a className="username" href="https://www.yelp.com">John</a>

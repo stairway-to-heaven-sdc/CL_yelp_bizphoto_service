@@ -9,7 +9,7 @@ const Modal = ({ hide }) => {
     <>
       <div className="modal modal--large">
         <div className="modal_inner" ref={modalRef}>
-          <div className="modal_close" role="button" onClick={hide}>&times;</div>
+          <div className="modal_close" role="button" onClick={hide} tabIndex={0} onKeyPress={() => {}}>&times;</div>
           <div className="modal_dialog" role="dialog">
             <div className="save-modal">
               <div className="save-list">

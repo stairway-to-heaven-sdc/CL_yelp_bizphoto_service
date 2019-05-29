@@ -4,7 +4,7 @@ import Claim from '../Tooltip/Claim';
 import Rating from '../Rating/Rating';
 import Detail from '../Tooltip/Detail';
 import Category from '../Category/Category';
-// render biz info
+
 const Bizleft = () => {
   const {
     bizname, reviewCount, rating, price, category,

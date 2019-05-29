@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const Category = ({ price, category }) => (
   <div className="price-category">
@@ -17,4 +18,8 @@ const Category = ({ price, category }) => (
   </div>
 );
 
+Category.propTypes = {
+  price: PropTypes.string.isRequired,
+  category: PropTypes.array.isRequired,
+};
 export default Category;
