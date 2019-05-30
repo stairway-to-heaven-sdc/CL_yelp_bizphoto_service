@@ -1,9 +1,6 @@
 // -----------------------------------------------------------------------------
 // This file contains all application-wide Sass mixins.
 // -----------------------------------------------------------------------------
-@import './variables',
-'./functions';
-//@import '../../../../node_modules/bourbon/core/bourbon';
 /// Event wrapper
 /// @param {Bool} $self [false] - Whether or not to include current selector
 @mixin on-event($self: false) {
