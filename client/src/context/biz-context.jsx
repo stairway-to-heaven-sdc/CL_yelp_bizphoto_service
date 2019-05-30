@@ -4,6 +4,11 @@ import useFetch from '../lib/useFetch';
 const BizContext = React.createContext();
 
 const url = `/biz/${1}`;
+// if (window.location.pathname !== '/') {
+//   url = `/biz/${window.location.pathname.slice(5)}`;
+//   console.log(url);
+// }
+
 const BizProvider = (props) => {
   const data = useFetch(url);
   let value;

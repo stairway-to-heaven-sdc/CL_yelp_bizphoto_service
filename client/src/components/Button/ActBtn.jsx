@@ -7,7 +7,7 @@ import useModal from '../../lib/useModal';
 const ActBtn = ({
   style, className, name, text,
 }) => {
-  const { isOpen, onButtonClick, onModalClose } = useModal();
+  const { isOpen, onButtonClick, onModalClose } = useModal(false);
   return (
     <>
       <span className="m-btn m-btn--small m-btn--secondary" onClick={onButtonClick} role="button" tabIndex={0} onKeyPress={() => {}}>
