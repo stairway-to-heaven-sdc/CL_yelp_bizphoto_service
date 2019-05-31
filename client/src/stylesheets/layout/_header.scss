@@ -7,7 +7,7 @@
   min-width: $wrapper-width;
   z-index: z(addons);
 
-  background: #bd1f1f;
+  background: $dark-red; //dark red
   text-align: center;
   font-weight: bold;
   & .header-link {
@@ -18,7 +18,7 @@
 .header-main-wrapper {
   @include padding(12px, 0, 12px, 0);
   @include pos(null, null, null, null, relative);
-  background: #d32323;
+  background:$brand-color;  //brand-color
 }
 
 /// header main section
@@ -43,7 +43,7 @@
     position: relative;
   }
   .header-main__link:hover {
-    background: #a71c1c;
+    background: $link-hover-red; //hoverred
   }
 }
 .header-main__link {
