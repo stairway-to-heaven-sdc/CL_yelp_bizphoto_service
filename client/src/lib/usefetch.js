@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react';
+import axios from 'axios';
 import '@babel/polyfill'; // fix regeneratorruntime is randomly not defined babel issue
-// TODO: define fallback
+
 const useFetch = (url) => {
   const [state, setState] = useState(null);
   const [loading, setLoading] = useState(true);
   const fetchData = async () => {
     try {
-      const response = await fetch(url);
-      const json = await response.json();
-      setState(json);
+      // const response = await fetch(url);
+      const response = await axios.get(url);
+      // const json = await response.json();
+      // console.log(window.location.pathname);
+      setState(response.data);
       setLoading(false);
     } catch (err) {
       console.log(err);

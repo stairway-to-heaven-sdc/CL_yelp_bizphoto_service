@@ -1,8 +1,8 @@
 
 import { useState } from 'react';
 
-const useModal = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const useModal = (initialstate) => {
+  const [isOpen, setIsOpen] = useState(initialstate);
   const onButtonClick = () => {
     setIsOpen(true);
   }; // add stopPropagation in child to prevent event bubbling
