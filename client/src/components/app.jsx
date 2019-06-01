@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {lazy, Suspense} from 'react';
 import Header from './Layout/Header';
-import Bizinfo from './Layout/Bizinfo';
+// import Bizinfo from './Layout/Bizinfo';
+const Bizinfo = lazy( () => import('./Layout/Bizinfo'));
+import Loading from './Layout/Loading';
 import '../stylesheets/main.scss';
-// Todo: implment react.suspense for fallback spin icon
 
 const App = () => (
   <div className="home">
     <Header />
+  <Suspense fallback = {<Loading/>}>
     <Bizinfo />
+  </Suspense>
   </div>
 );
 

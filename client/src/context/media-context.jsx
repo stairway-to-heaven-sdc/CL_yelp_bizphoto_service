@@ -3,7 +3,11 @@ import useFetch from '../lib/useFetch';
 
 const MediaContext = React.createContext();
 
-const url = `/biz_photos/${1}/${1}`; // /biz_photos/:bId/:pId
+let url = `/biz_photos/${1}/${1}`; // /biz_photos/:bId/:pId
+if (window.location.pathname !== '/') {
+  url = `/biz_photos/${window.location.pathname.slice(6)}${1}`;
+  console.log(url);
+}
 const MediaProvider = (props) => {
   const data = useFetch(url);
   let value;
@@ -16,6 +20,7 @@ const MediaProvider = (props) => {
 };
 const useMedia = () => {
   const context = React.useContext(MediaContext);
+  console.log('media context is ', context);
   if (context === undefined) {
     return [
       {

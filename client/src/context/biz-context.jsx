@@ -3,11 +3,11 @@ import useFetch from '../lib/useFetch';
 
 const BizContext = React.createContext();
 
-const url = `/biz/${1}`;
-// if (window.location.pathname !== '/') {
-//   url = `/biz/${window.location.pathname.slice(5)}`;
-//   console.log(url);
-// }
+let url = `/biz/${1}`;
+if (window.location.pathname !== '/') {
+  url = `/biz/${window.location.pathname.slice(6)}`;
+  console.log(url);
+}
 
 const BizProvider = (props) => {
   const data = useFetch(url);
@@ -20,7 +20,8 @@ const BizProvider = (props) => {
 };
 const useBiz = () => {
   const context = React.useContext(BizContext);
-  if (context === undefined) {
+  console.log('context is,', context);
+  if (context === undefined || context.price === undefined) {
     return {
       bId: 1,
       bizname: 'Taste of HAHA',
