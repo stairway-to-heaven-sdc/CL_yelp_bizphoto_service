@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Slide from './Slide';
 import Arrow from '../Arrow/Arrow';
 import Seemore from './Seemore';
@@ -8,9 +8,9 @@ import useIndex from '../../lib/useIndex';
 
 const Showcase = () => {
   const media = useMedia();
-  console.log('logging here?', process.env.NODE_ENV);
+  // console.log('media?', media);
+  // console.log('logging here?', process.env.NODE_ENV);
   const len = media.length;
-  const { index, handleleft, handleright } = useIndex(0, len);
   const slideOne = [];
   slideOne.push(media[len - 1]);
   media.forEach((item, i) => {
@@ -18,6 +18,13 @@ const Showcase = () => {
   });
   const slideTwo = media.slice(0, len - 1);
   const slideThree = media.slice(1);
+  const initLen = slideOne.length;
+  const { index, handleleft, handleright } = useIndex(0, initLen);
+  // click handleright every 30s
+  // if (index < len - 2) {
+  //   // console.log('what is len?', len);
+  //   setInterval(() => { console.log('click now', index); handleright(); }, 5000);
+  // }
   return (
     <div className="showcase">
       <div className="biz__grey" />

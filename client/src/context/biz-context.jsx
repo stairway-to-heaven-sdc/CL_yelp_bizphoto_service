@@ -20,7 +20,7 @@ const BizProvider = (props) => {
 };
 const useBiz = () => {
   const context = React.useContext(BizContext);
-  console.log('context is,', context);
+  // console.log('context is,', context);
   if (context === undefined || context.price === undefined) {
     return {
       bId: 1,

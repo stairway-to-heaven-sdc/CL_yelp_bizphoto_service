@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-const useIndex = (initialIndex = 0, initialLen = 3) => {
+const useIndex = (initialIndex = 0, initialLen = 1) => {
   const [index, setIndex] = useState(initialIndex);
   const len = initialLen;
   const handleright = () => {
@@ -13,6 +13,7 @@ const useIndex = (initialIndex = 0, initialLen = 3) => {
       setIndex(index - 1);
     }
   };
+
   return { index, handleleft, handleright };
 };
 
