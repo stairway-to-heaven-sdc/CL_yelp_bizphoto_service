@@ -35,6 +35,7 @@ module.exports = {
       {
         test: /\.(scss|sass|css)$/,
         use: [
+
           // fallback to style-loader in development
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
@@ -63,7 +64,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: '[name].css',
+      filename: `${DIST_DIR}/style.css`,
       chunkFilename: '[id].css',
     }),
   ],
