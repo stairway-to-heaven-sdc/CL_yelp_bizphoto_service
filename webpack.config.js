@@ -6,7 +6,7 @@ const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     path: DIST_DIR,
@@ -60,7 +60,9 @@ module.exports = {
     ],
   },
   plugins: [
-    new SpriteLoaderPlugin(),
+    new SpriteLoaderPlugin({
+      plainSprite: true,
+    }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional

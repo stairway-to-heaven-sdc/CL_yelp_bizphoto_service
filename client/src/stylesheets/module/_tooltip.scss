@@ -5,18 +5,16 @@
 }
 
 .claim-status_icon {
-  vertical-align: text-bottom
+  vertical-align: text-bottom;
 }
-
 .claim-status-hover-content {
-  position:fixed;
-  /* position: relative; */
+  position: relative; //can't use fixed
   text-align:center;
   .top { ///display on top
-    width: 300px;
-    min-height: 55px;
-    white-space: normal;
-    top:8px;
+    //width: 300px;
+    //min-height: 55px;
+    //white-space: normal;
+    // top:8px;
     left:50%;
     transform:translate(-10%, -100%);
     padding:10px 20px;
@@ -24,7 +22,7 @@
     background-color:#FFFFFF;
     border-radius:5px;
     position:absolute;
-    z-index:999999;
+    z-index:z(bottomless-pit);
     box-sizing:border-box;
     border:1px solid #BBBBBB;
     box-shadow:0 1px 8px #CCCCCC;
