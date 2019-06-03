@@ -12,6 +12,7 @@ module.exports = {
     "react-hooks",
     "jest"
   ],
+  "parser": "babel-eslint",
   "rules": {
       // windows linebreaks when not in production environment
       "linebreak-style": 0,
