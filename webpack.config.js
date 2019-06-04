@@ -11,12 +11,14 @@ module.exports = {
   output: {
     path: DIST_DIR,
     filename: 'biz_bundle.js',
+    sourceMapFilename: 'biz_bundle.js.map',
   },
   devServer: {
     contentBase: path.join(__dirname, '/client/dist'),
     compress: true,
     port: 9000,
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
