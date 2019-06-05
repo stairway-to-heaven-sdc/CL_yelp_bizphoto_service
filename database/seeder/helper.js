@@ -40,7 +40,7 @@ module.exports = {
     return result._doc;
   },
   getPhotos: async (pid) => {
-    const length = pid + 9;
+    const length = pid + 19;
     let id = pid;
     const result = [];
     while (id <= length) {
