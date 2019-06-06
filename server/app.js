@@ -48,7 +48,15 @@ app.get('/users/:uId', async (req, res) => {
 app.get('/biz_photos/:bId/:pId', async (req, res) => {
   try {
     const result = await getPhotos(JSON.parse(req.params.pId), JSON.parse(req.params.bId));
-    res.status(200).send(result);
+    // get uIds array
+    const userIds = [];
+    result.forEach((item) => {
+      userIds.push(item.uId);
+    });
+    const final = [];
+    final.push(result);
+    final.push(userIds);
+    res.status(200).send(final);
   } catch (err) {
     res.status(400).send(err);
   }
@@ -63,5 +71,6 @@ app.get('/biz_dishes/:bId/:dishes', async (req, res) => {
     res.status(400).send(err);
   }
 });
+
 
 module.exports = app;
