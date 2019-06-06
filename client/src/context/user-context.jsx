@@ -1,14 +1,11 @@
 import React from 'react';
 import useFetch from '../lib/useFetch';
-//TODO: need small size photo...
+// TODO: need small size photo...
 
 const UserContext = React.createContext();
 
-let url = `/biz_photos/${1}/${1}`; // /biz_photos/:bId/:pId
-if (window.location.pathname !== '/') {
-  url = `/biz_photos/${window.location.pathname.slice(6)}${1}`;
-  console.log(url);
-}
+// let url = `/biz_photos/${1}/${1}`; // /biz_photos/:bId/:pId
+const url = '/users/?uIds[]=1';
 
 const UserProvider = (props) => {
   const data = useFetch(url);
@@ -25,25 +22,25 @@ const UserProvider = (props) => {
   return <UserContext.Provider value={value} {...props} />;
 };
 const useUser = () => {
-  const context = React.useContext(MediaContext);
+  const context = React.useContext(UserContext);
   console.log('user context is ', context);
   if (context === undefined) {
     return [
       {
-        username: `hibow`,
-        photo: null
+        username: 'hibow',
+        photo: 'https://s3-media4.fl.yelpcdn.com/photo/Va09KqWDtRiYbA0XWTU48g/30s.jpg',
       },
       {
-        username: `Nick`,
-        photo: `http://pbs.twimg.com/profile_images/952318165941477376/e-3MyGW3.jpg`
+        username: 'Nick',
+        photo: 'https://s3-media4.fl.yelpcdn.com/photo/Va09KqWDtRiYbA0XWTU48g/30s.jpg',
       },
       {
-        username: `John`,
-        photo:null
+        username: 'John',
+        photo: 'https://s3-media4.fl.yelpcdn.com/photo/Va09KqWDtRiYbA0XWTU48g/30s.jpg',
       },
     ];
   }
   return context;
 };
 
-export { MediaProvider, useMedia };
+export { UserProvider, useUser };
