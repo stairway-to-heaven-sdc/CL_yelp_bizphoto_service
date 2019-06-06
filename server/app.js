@@ -44,7 +44,7 @@ app.get('/users/:uId', async (req, res) => {
   }
 });
 
-// Get 10 photos by requesting pId
+// Get 20 photos by requesting pId
 app.get('/biz_photos/:bId/:pId', async (req, res) => {
   try {
     const result = await getPhotos(JSON.parse(req.params.pId), JSON.parse(req.params.bId));

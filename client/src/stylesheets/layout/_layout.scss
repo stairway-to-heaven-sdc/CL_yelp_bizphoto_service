@@ -17,6 +17,7 @@
 .biz {
   min-width: $container-width;
   overflow: hidden; //hide biz__grey
+  height: 501.88px;
   @include box(100%, null, white, relative);
   @include padding(15px, null, 24px, null);
   @include margin(null, null, -18px, null);//for combining with buttom module

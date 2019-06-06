@@ -60,6 +60,7 @@
     "react-testing-library": "^7.0.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",
+    "supertest": "^4.0.2",
     "svg-sprite-loader": "^4.1.6",
     "url-loader": "^1.1.2",
     "webpack": "^4.31.0",
