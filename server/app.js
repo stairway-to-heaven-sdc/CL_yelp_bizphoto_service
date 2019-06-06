@@ -10,6 +10,7 @@ const {
 const app = express();
 app.use(cors());
 app.use(express.static(`${__dirname}/../client/dist`));
+app.use('/bizs/:bId', express.static(`${__dirname}/../client/dist`));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -43,7 +44,7 @@ app.get('/users/:uId', async (req, res) => {
   }
 });
 
-// Get 10 photos by requesting pId
+// Get 20 photos by requesting pId
 app.get('/biz_photos/:bId/:pId', async (req, res) => {
   try {
     const result = await getPhotos(JSON.parse(req.params.pId), JSON.parse(req.params.bId));

@@ -4,8 +4,7 @@
 
 ## Related Projects
 
-  - TBD
-
+  - Proxy: https://github.com/3-body-problem/CL_yelp_proxy
 
 ## Table of Contents
 
@@ -16,8 +15,10 @@
 ## Usage
 
 > Please run the following scripts to start this service:
-1. `npm run seed` : insert 400 mock items into database (business, photo)
-2. `npm run unseed`: remove all items from database
+1. `npm install`: Install all required dependencies
+2. `npm run seed` : Insert 400 mock items into database (business, photo)
+3. `npm run unseed`: Remove all items from database
+4. `npm test:desc`: Run all tests with descriptions
 
 ## API Endpoint
 

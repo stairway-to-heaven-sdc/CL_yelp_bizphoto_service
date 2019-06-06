@@ -1,0 +1,134 @@
+@import '../abstracts/variables', '../abstracts/mixins';
+.l-form {
+  margin-bottom: 18px;
+}
+
+/** input */ 
+.l-form .pseudo-input {
+  cursor: text;
+  position: relative;
+  overflow: hidden;
+  display: block;
+  @include box-sizing(border-box);
+  width: 100%;
+  margin: 0 0 18px;
+  padding: 5px 9px;
+  background: #fff;
+  border: 1px solid #999;
+  border-radius: 3px;
+  @include font-scale(medium, $font-map);
+}
+
+.l-form .pseudo-input input,
+.l-form .pseudo-input input:focus {
+  margin: 0;
+  border: 0;
+  outline: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: none;
+  padding: 2px;
+  display: inline-block;
+  vertical-align: middle
+}
+.l-form .pseudo-input_field {
+  width: 100%;
+  vertical-align: baseline !important;
+  padding: 0 !important
+}
+
+/** label */ 
+.l-form label {
+    display: inline-block;
+    font-weight: bold;
+    margin: 0 0 6px
+}
+/** input label text */ 
+.l-form .pseudo-input_text {
+  @include x-user-select;
+  float: left;
+  margin-right: 5px;
+  font-weight: bold;
+  color: #333;
+  cursor: default;
+}
+
+/** input placeholder */ 
+.l-form .pseudo-input_field-holder {
+  display: block;
+  overflow: hidden
+}
+
+/**search bar search field for table cell*/
+.main-search_search-field-grid {
+  width: 50%
+}
+
+/** input field */ 
+.main-search_pseudo-input,
+.l-form .main-search_pseudo-input {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 0;
+  background: #fff;
+  margin: 0;
+  height: 36px;
+  line-height: 20px
+}
+
+.main-search_pseudo-input--find,
+.l-form .main-search_pseudo-input--find {
+  border-radius: 4px 0 0 4px;
+  position: relative
+}
+
+.main-search_pseudo-input--find::after,
+.l-form .main-search_pseudo-input--find::after {
+  content: "";
+  position: absolute;
+  top: 8px;
+  right: 0;
+  bottom: 8px;
+  width: 1px;
+  background-color: #ccc
+}
+
+/**search find field for place holder*/ 
+.main-search_field:focus {
+  outline: 0
+}
+
+//inline style
+.inputTwo {
+  display: inline-block;
+  /* I add font size */
+  font-size: 14px;
+  background: transparent;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/** search bar submit button*/ 
+.main-search_submit,
+.l-form .main-search_submit {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border: 0;
+  border-radius: 0 4px 4px 0;
+  background: #bd1f1f;
+  line-height: 36px;
+  padding: 0 15px;
+  width: 54px
+}
+
+.main-search_submit:hover,
+.main-search_submit:focus,
+.main-search_submit:active,
+.l-form .main-search_submit:hover,
+.l-form .main-search_submit:focus,
+.l-form .main-search_submit:active {
+  background: #a71c1c
+}

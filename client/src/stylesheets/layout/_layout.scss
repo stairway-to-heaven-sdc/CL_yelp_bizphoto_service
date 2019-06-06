@@ -1,0 +1,181 @@
+// @import '../abstracts/functions', '../abstracts/mixins', '../abstracts/variables';
+// @import './flexbox';
+/// main content container for global
+/**
+ * Main content containers
+ * 1. Make the container full-width with a maximum width
+ * 2. Center it in the viewport
+ * 3. Leave some space on the edges, especially valuable on small screens
+ */
+ .l-content {
+  width: $container-width; //default content width
+  margin: 0 auto; //in the center
+  padding: 0 15px;
+}
+
+/// define all the container
+.biz {
+  min-width: $container-width;
+  overflow: hidden; //hide biz__grey
+  height: 501.88px;
+  @include box(100%, null, white, relative);
+  @include padding(15px, null, 24px, null);
+  @include margin(null, null, -18px, null);//for combining with buttom module
+  z-index: z(default) ;//display biz__grey
+  h1 {
+    @include padding(0, null, null, null);
+  }
+}
+/// biz top section
+.biz-header {
+  @include box(100%, null, null, relative);
+  @include margin(null, null, 13px, null);
+  @include font-scale(biztop, $font-map);
+  @include flex-box();
+  @include align-items(center);
+  /// left section
+  .biz-header--left {
+    @include flex(1);
+    @include padding(null, 30px, null, null);
+    min-width: 0;
+    min-height: 0;
+  }
+  /// right section
+  .biz-header--right {
+    display: table;
+  }
+  .biz-rating {
+    margin-bottom: 9px;
+    .biz-rating-wrap {
+      @include margin(0,null,0,null);
+      float: left;
+      line-height: 24px;
+    }
+  }
+  .review-count {
+    @include pos(null,null, null, null, relative);
+  }
+  .rating-details {
+    @include pos(1px, null, null, null, relative);
+    @include margin(null, null, null, 9px);
+    float: left;
+  }
+}
+.biz-title {
+  @include padding(6px, null, null, null);
+  @include font-scale(large, $font-map);
+  display: inline;
+}
+.biz-info {
+  @include margin(9px, null, null, null);
+}
+.biz-actions {
+  @include padding(null, null, 1px, null);
+  @include margin(-1px, null, null, null);
+  text-align: right;
+  overflow: hidden;
+}
+
+/// biz main container
+.biz-main {
+  /// divide to 2 tables partitioned by 1/3 and 2/3
+  @include vertical-center-table-3('.mapbox-wrapper', '.showcase-wrapper');
+  .biz__grey { //background color
+    z-index: z(bg-grey);
+    @include pos(-9999px, -9999px, 0, -9999px);
+  }
+  .showcase-wrapper {
+    .showcase{
+      @include box(660px, 220px, null, relative);
+    }
+  }
+}
+
+/// grey color background
+.biz__grey { //biz__grey
+  background: #f5f5f5;
+  border-bottom: 1px solid #e6e6e6
+}
+.mapbox {
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #ccc
+}
+
+
+/// for table content gridment
+.grid {  //grid
+  display: table;
+  min-width: 100%;
+  table-layout: auto
+}
+
+/// for each table cell
+.grid_unit {  //grid__item
+  box-sizing: border-box;
+  display: table-cell;
+  vertical-align: top
+}
+
+/// apply full width for table cell
+.grid_unit--fill {  //grid__item-fill
+  width: 100%
+}
+/// set it's children to align middle
+.grid--middle>.grid_unit {
+  vertical-align: middle
+}
+
+/// the container contains two table cells
+.grid--equal {
+  display: flex;
+  & > .grid-unit {
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+    display: block;
+  }
+}
+
+.grid--wrap {
+  display: block;
+  font-size: 0;
+  line-height: 1;
+  text-align: left;
+  & > .grid-unit {
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    width: auto;
+    font-size: 14px;
+    line-height: 1.28571em;
+  }
+}
+/// for -18px margin
+.grid--18 {
+  margin-left: -18px;
+  margin-right: -18px;
+  border-collapse: separate;
+  border-spacing: 18px 0;
+  & >.grid_unit {
+    margin-left: 9px;
+    margin-right: 9px;
+    border-collapse: collapse;
+    border-spacing: 0 0;
+  }
+}
+
+
+/**  when scree size changes **/
+
+@media only screen and (max-width: 989px) {
+  .l-content {
+      width:auto
+  }
+}
+
+@media only screen and (max-width: 479px) {
+  .header-main .l-content {
+    padding: 0 12px
+}
+  }

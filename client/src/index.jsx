@@ -1,5 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './app';
+import Biz from './components/Biz';
+import AppProvider from './context/index';
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <AppProvider>
+    <Biz />
+  </AppProvider>,
+  document.getElementById('Biz'),
+);

@@ -1,0 +1,36 @@
+.mapbox {    //mapbox-wrapper
+  padding: 5px;
+  background: #fff;
+  border: 1px solid #ccc
+}
+
+.mapbox-map {
+  overflow: hidden;
+  height: 135px;
+  border: 1px solid #ccc;
+  .biz-map-directions {
+    display: block
+  }
+}
+
+.mapbox-text {
+  min-height: 105px;
+  ul {
+    margin: 5px;
+  }
+  li {
+    margin-bottom: 3px;
+  }
+}
+
+.mapbox-edit {
+  float: right;
+  margin: 1px 3px
+}
+.map-box-address {
+  line-height: 18px
+}
+
+.street-address {
+  font-weight: bold
+}

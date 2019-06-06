@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render Category render correctly Category component 1`] = `
+<Category
+  category={
+    Array [
+      "Steakhouses",
+      "Wine Bars",
+    ]
+  }
+  price="$$$"
+>
+  <div
+    className="price-category"
+  >
+    <span
+      className="bullet"
+    >
+      <span
+        className="price-range"
+      >
+        $$$
+      </span>
+    </span>
+    <span
+      className="category-list"
+    >
+       Steakhouses, Wine Bars 
+    </span>
+    <a
+      className="chiclet-link chiclet-link-text"
+      href="https://www.yelp.com"
+    >
+      Edit
+    </a>
+  </div>
+</Category>
+`;
