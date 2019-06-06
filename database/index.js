@@ -8,7 +8,7 @@ const run = async () => {
       dbName: 'Yelp',
       useNewUrlParser: true,
     });
-  console.log('mongoDB connected');
+  // console.log('mongoDB connected');
 };
 run().catch(err => console.log(err));
 
