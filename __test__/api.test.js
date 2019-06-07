@@ -11,19 +11,22 @@
 const request = require('supertest');
 const app = require('../server/app');
 const { db } = require('../database/index.js');
-// note: async await is important in the test for database and server
-
 
 let server = null;
 beforeEach((done) => {
   server = app.listen(done);
+  jest.setTimeout(10000);
+});
+beforeAll((done) => {
+  done();
 });
 afterEach((done) => {
   server.close(done);
 });
 
-afterAll(async () => {
+afterAll(async (done) => {
   await db.close();
+  done();
 });
 
 describe('When GET / ', () => {
