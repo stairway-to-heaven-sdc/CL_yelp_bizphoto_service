@@ -6,7 +6,7 @@ import { UserProvider } from './user-context';
 const AppProviders = ({ children }) => (
   <BizProvider>
     <MediaProvider>
-      <UserProvider>{children}</UserProvider>
+      {children}
     </MediaProvider>
   </BizProvider>
 );

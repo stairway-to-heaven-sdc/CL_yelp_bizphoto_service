@@ -32,11 +32,11 @@ describe('When GET / ', () => {
       await request(app).get('/').then((response) => {
         expect(response.header['content-type']).toEqual('text/html; charset=UTF-8');
         expect(response.status).toEqual(200);
+        done();
       });
     } catch (err) {
       throw err;
     }
-    done();
   });
 });
 describe('When GET /bizs/:bId ', () => {
@@ -45,11 +45,11 @@ describe('When GET /bizs/:bId ', () => {
       await request(app).get('/bizs/1').then((response) => {
         expect(response.header['content-type']).toEqual('text/html; charset=UTF-8');
         expect(response.status).toEqual(301);
+        done();
       });
     } catch (err) {
       throw err;
     }
-    done();
   });
 });
 describe('When GET /biz/:bId with correct bId', () => {
@@ -60,11 +60,11 @@ describe('When GET /biz/:bId with correct bId', () => {
         const bizData = JSON.parse(response.text);
         expect(bizData.bizname).toEqual('Taste of Texas');
         expect(response.status).toEqual(200);
+        done();
       });
     } catch (err) {
       throw err;
     }
-    done();
   });
 });
 
@@ -73,13 +73,13 @@ describe('When GET /biz_photos/:bId/:pId for 20 pictures starts from assigned pI
     try {
       await request(app).get('/biz_photos/1/1').then((response) => {
         expect(response.type).toEqual('application/json');
-        const photos = JSON.parse(response.text);
+        const photos = JSON.parse(response.text)[0];
         expect(photos.length).toEqual(20);
         expect(response.status).toEqual(200);
       });
+      done();
     } catch (err) {
       throw err;
     }
-    done();
   });
 });
