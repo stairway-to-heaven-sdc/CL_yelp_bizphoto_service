@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const url = 'mongodb://127.0.0.1:27017';// localhost';
+const url = 'mongodb://localhost';// localhost';
 // const mongoDBURI = process.env.MONGOLAB_URI || url;
 const run = async () => {
   await mongoose.connect(url,
