@@ -1,16 +1,13 @@
 const mongoose = require('mongoose');
 
 const url = 'mongodb://localhost';// localhost';
-// const mongoDBURI = process.env.MONGOLAB_URI || url;
-const run = async () => {
-  await mongoose.connect(url,
-    {
-      dbName: 'Yelp',
-      useNewUrlParser: true,
-    });
-  // console.log('mongoDB connected');
-};
-run().catch(err => console.log(err));
+const mongoDBURI = process.env.MONGOLAB_URI || url;
+mongoose.connect(mongoDBURI,
+  {
+    dbName: 'Yelp',
+    useNewUrlParser: true,
+  }).then(() => console.log('mongoDB connected'))
+  .catch(err => console.log(err));
 
 const db = mongoose.connection;
 
