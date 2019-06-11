@@ -5,20 +5,15 @@ import Seemore from './Seemore';
 import Watchvid from './Watchvid';
 import { useMedia } from '../../context/media-context';
 import useIndex from '../../lib/useIndex';
-import useFetch from '../../lib/useFetch';
 
 const Showcase = () => {
   const result = useMedia();
   let media = [];
-  const url = '/users/';
-  const params = { uIds: [] };
   if (result.length === 2) {
-    media = result[0];
+    [media] = result;
   } else {
     media = result;
   }
-  // console.log('media?', media);
-  // console.log('logging here?', process.env.NODE_ENV);
   const len = media.length;
   const slideOne = [];
   slideOne.push(media[len - 1]);
@@ -29,11 +24,6 @@ const Showcase = () => {
   const slideThree = media.slice(1);
   const initLen = slideOne.length;
   const { index, handleleft, handleright } = useIndex(0, initLen);
-  // click handleright every 30s
-  // if (index < len - 2) {
-  //   // console.log('what is len?', len);
-  //   setInterval(() => { console.log('click now', index); handleright(); }, 5000);
-  // }
   return (
     <div className="showcase">
       <div className="biz__grey" />

@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import Dropdown from './Dropdown';
 import Icon from '../Icon/Icon';
 // toDO: add class if open (header-link--dropdown-open)
@@ -41,5 +42,9 @@ const Topic = ({ topic, listL, listR }) => {
     </div>
   );
 };
-
+Topic.propTypes = {
+  listL: PropTypes.array.isRequired,
+  listR: PropTypes.array.isRequired,
+  topic: PropTypes.array.isRequired,
+};
 export default Topic;

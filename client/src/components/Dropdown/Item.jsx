@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon/Icon';
 
 const Item = ({ item }) => (
   <li className="header-dropdown-li">
-    <a className="header-dropdown-link_anchor" href="https://www.yelp.com">
+    <a className="header-dropdown-link_anchor" href="/">
       <div className="header-dropdown-link_wrapper u-padding-t2 u-padding-r2 u-padding-b2 u-padding-l2">
         <span className="nav--display--inline u-padding-r1">
           <span
@@ -21,5 +22,7 @@ const Item = ({ item }) => (
     </a>
   </li>
 );
-
+Item.propTypes = {
+  item: PropTypes.string.isRequired,
+};
 export default Item;

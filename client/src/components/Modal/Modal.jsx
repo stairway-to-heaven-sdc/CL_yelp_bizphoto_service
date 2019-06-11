@@ -1,7 +1,8 @@
 import React, { useRef } from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import useClickOutside from '../../lib/useClickOutside';
-// TODO: customize content
+
 const Modal = ({ hide }) => {
   const modalRef = useRef(null);
   useClickOutside(modalRef, hide);
@@ -30,5 +31,8 @@ const Modal = ({ hide }) => {
       </div>
     </>, document.body,
   );
+};
+Modal.propTypes = {
+  hide: PropTypes.func.isRequired,
 };
 export default Modal;

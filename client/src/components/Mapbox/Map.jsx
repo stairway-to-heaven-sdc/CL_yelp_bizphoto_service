@@ -3,7 +3,7 @@ import React from 'react';
 // TODO: modal for map
 const Map = () => (
   <div className="mapbox-map">
-    <a className="biz-map-directions" href="https://www.yelp.com">
+    <a className="biz-map-directions" href="/">
       <img
         alt="Map"
         height="135"

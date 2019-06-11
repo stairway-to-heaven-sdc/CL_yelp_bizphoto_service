@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import Item from './Item';
 
 const Dropdown = ({ listL, listR }) => (
@@ -7,18 +8,21 @@ const Dropdown = ({ listL, listR }) => (
     <div className="grid grid--equal">
       <div className="header-dropdown-col grid_unit">
         <ul className="header-dropdown-ul">
-          {listL.map((item, index) => <Item item={item} key={index} />)
+          {listL.map(item => <Item item={item} key={item.id} />)
           }
         </ul>
       </div>
       <div className="header-dropdown-col grid_unit">
         <ul className="header-dropdown-ul">
-          {listR.map((item, j) => <Item item={item} key={j} />)
+          {listR.map(item => <Item item={item} key={item.id} />)
           }
         </ul>
       </div>
     </div>
   </div>
 );
-
+Dropdown.propTypes = {
+  listL: PropTypes.array.isRequired,
+  listR: PropTypes.array.isRequired,
+};
 export default Dropdown;
