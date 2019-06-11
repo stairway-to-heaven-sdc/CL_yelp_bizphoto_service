@@ -22,6 +22,6 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
-/client/dist/*biz_bundle.js
-/client/dist/style.css
+/client/dist/*bundle.js
+/client/dist/*main.css
 

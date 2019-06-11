@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon/Icon';
-// left margin
-// list component -> if doing modal
+
 const Maptext = ({
   add1, add2, city, state, zip, phone, url, area,
 }) => (
@@ -103,5 +103,14 @@ const Maptext = ({
 
   </div>
 );
-
+Maptext.propTypes = {
+  add1: PropTypes.string.isRequired,
+  add2: PropTypes.string.isRequired,
+  city: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
+  zip: PropTypes.string.isRequired,
+  phone: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  area: PropTypes.string.isRequired,
+};
 export default Maptext;

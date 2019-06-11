@@ -2,22 +2,23 @@ const path = require('path');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
-const devMode = process.env.NODE_ENV !== 'production';
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
-  mode: 'production',
+  mode: 'development',
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     path: DIST_DIR,
     filename: 'biz_bundle.js',
+    sourceMapFilename: 'biz_bundle.js.map',
   },
   devServer: {
     contentBase: path.join(__dirname, '/client/dist'),
     compress: true,
     port: 9000,
   },
+  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -36,6 +37,7 @@ module.exports = {
       {
         test: /\.(scss|sass|css)$/,
         use: [
+
           // fallback to style-loader in development
           process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
           'css-loader',
@@ -59,13 +61,28 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        vendor: {
+          name: 'vendor',
+          chunks: 'all',
+          test: /node_modules/,
+        },
+      },
+    },
+  },
   plugins: [
-    new SpriteLoaderPlugin(),
+    new SpriteLoaderPlugin({
+      plainSprite: true,
+    }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: devMode ? '[name].css' : '[name].[hash].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+      filename: `${DIST_DIR}/style.css`,
+      chunkFilename: '[id].css',
     }),
   ],
 };

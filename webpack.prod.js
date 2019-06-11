@@ -1,24 +1,25 @@
 const path = require('path');
 const SpriteLoaderPlugin = require('svg-sprite-loader/plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const SRC_DIR = path.join(__dirname, '/client/src');
 const DIST_DIR = path.join(__dirname, '/client/dist');
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: `${SRC_DIR}/index.jsx`,
   output: {
     path: DIST_DIR,
     filename: 'biz_bundle.js',
-    sourceMapFilename: 'biz_bundle.js.map',
+    chunkFilename: 'vendor.bundle.js',
   },
   devServer: {
     contentBase: path.join(__dirname, '/client/dist'),
     compress: true,
     port: 9000,
   },
-  devtool: 'eval-source-map',
   module: {
     rules: [
       {
@@ -37,9 +38,7 @@ module.exports = {
       {
         test: /\.(scss|sass|css)$/,
         use: [
-
-          // fallback to style-loader in development
-          process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
           'css-loader',
           'sass-loader',
         ],
@@ -61,14 +60,36 @@ module.exports = {
       },
     ],
   },
+  optimization: {
+    minimizer: [new TerserPlugin({
+      cache: true,
+      parallel: true,
+      sourceMap: true,
+      terserOptions: {
+      },
+    }), new OptimizeCSSAssetsPlugin()],
+    splitChunks: {
+      cacheGroups: {
+        default: false,
+        vendors: false,
+        vendor: {
+          name: 'vendor',
+          chunks: 'all',
+          test: /node_modules/,
+        },
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    },
+  },
   plugins: [
-    new SpriteLoaderPlugin({
-      plainSprite: true,
-    }),
+    new SpriteLoaderPlugin(),
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: `${DIST_DIR}/style.css`,
+      filename: '[name].css',
       chunkFilename: '[id].css',
     }),
   ],

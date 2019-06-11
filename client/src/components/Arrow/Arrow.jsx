@@ -1,7 +1,10 @@
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/interactive-supports-focus */
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon/Icon';
 
-const Navleft = ({ name, classlabel, clickFunc }) => (
+const Arrow = ({ name, classlabel, clickFunc }) => (
   <div className={classlabel} onClick={clickFunc} role="button">
     <div className="arrow">
       <span
@@ -13,5 +16,9 @@ const Navleft = ({ name, classlabel, clickFunc }) => (
     </div>
   </div>
 );
-
-export default Navleft;
+Arrow.propTypes = {
+  name: PropTypes.string.isRequired,
+  classlabel: PropTypes.string.isRequired,
+  clickFunc: PropTypes.func.isRequired,
+};
+export default Arrow;

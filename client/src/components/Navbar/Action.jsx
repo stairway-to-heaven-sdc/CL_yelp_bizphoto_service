@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Icon from '../Icon/Icon';
 
 const Action = ({ topic }) => (
@@ -22,5 +23,7 @@ const Action = ({ topic }) => (
     </div>
   </div>
 );
-
+Action.propTypes = {
+  topic: PropTypes.array.isRequired,
+};
 export default Action;

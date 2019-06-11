@@ -1,6 +1,6 @@
 import React from 'react';
 import Icon from '../Icon/Icon';
-// reuse button
+
 const Warbtn = () => (
   <a
     className="m-btn m-btn-primary war-button"

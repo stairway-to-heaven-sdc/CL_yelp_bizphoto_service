@@ -1,7 +1,6 @@
 import React from 'react';
 import Topic from '../Dropdown/Topic';
 import Action from './Action';
-// Todo: hover function doesn't work
 
 const Navbar = () => (
   <div className="grid ">
