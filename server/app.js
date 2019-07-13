@@ -1,11 +1,20 @@
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const { db } = require('../database/index.js');
+const {db} = require('../database/index.js');
 const {
-  getBizInfo, getPhotoInfo, getPhotos, getDishPhotos, getUserInfo,
+  getBizInfo,
+  getPhotoInfo,
+  getPhotos,
+  getDishPhotos,
+  getUserInfo,
 } = require('../database/seeder/helper.js');
+
+const {
+  createEntry,
+  deleteEntry,
+  editEntry,
+} = require('../database/controllers.js');
 
 const app = express();
 app.use(cors());
@@ -13,8 +22,7 @@ app.use(express.static(`${__dirname}/../client/dist`));
 app.use('/bizs/:bId', express.static(`${__dirname}/../client/dist`));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/biz/:bId', async (req, res) => {
   try {
@@ -27,7 +35,10 @@ app.get('/biz/:bId', async (req, res) => {
 // Get photo detail by requesting pId
 app.get('/biz_photo/:bId/:pId', async (req, res) => {
   try {
-    const result = await getPhotoInfo(JSON.parse(req.params.pId), JSON.parse(req.params.bId));
+    const result = await getPhotoInfo(
+      JSON.parse(req.params.pId),
+      JSON.parse(req.params.bId),
+    );
     res.status(200).send(result);
   } catch (err) {
     res.status(400).send(err);
@@ -47,10 +58,13 @@ app.get('/users/:uId', async (req, res) => {
 // Get 20 photos by requesting pId (Modified for user ids test)
 app.get('/biz_photos/:bId/:pId', async (req, res) => {
   try {
-    const result = await getPhotos(JSON.parse(req.params.pId), JSON.parse(req.params.bId));
+    const result = await getPhotos(
+      JSON.parse(req.params.pId),
+      JSON.parse(req.params.bId),
+    );
     // get uIds array
     const userIds = [];
-    result.forEach((item) => {
+    result.forEach(item => {
       userIds.push(item.uId);
     });
     const final = [];
@@ -65,12 +79,21 @@ app.get('/biz_photos/:bId/:pId', async (req, res) => {
 // Get first photo and total photo counts by requesting dish menu
 app.get('/biz_dishes/:bId/:dishes', async (req, res) => {
   try {
-    const result = await getDishPhotos(JSON.parse(req.params.dishes), JSON.parse(req.params.bId));
+    const result = await getDishPhotos(
+      JSON.parse(req.params.dishes),
+      JSON.parse(req.params.bId),
+    );
     res.status(200).send(result);
   } catch (err) {
     res.status(400).send(err);
   }
 });
 
+app.post('/post', (req, res) => {
+  const {query} = req;
+  console.log(query);
+  createEntry(query);
+  res.send(query);
+});
 
 module.exports = app;

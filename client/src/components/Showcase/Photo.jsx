@@ -1,9 +1,7 @@
 import React from 'react';
 // feed more data to photos
 // get a list of url s3 at least 30
-const Photo = ({
-  imgUrl, text,
-}) => (
+const Photo = ({imgUrl, text}) => (
   <>
     <div className="showcase-photo-box">
       <a href="https://www.yelp.com">
@@ -38,7 +36,9 @@ const Photo = ({
           <span className="photo-desc">{text}</span>
           <span className="author">
             {' by '}
-            <a className="username" href="https://www.yelp.com">John</a>
+            <a className="username" href="https://www.yelp.com">
+              John
+            </a>
           </span>
         </div>
       </div>
