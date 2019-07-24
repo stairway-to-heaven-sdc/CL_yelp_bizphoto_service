@@ -79,7 +79,16 @@ app.get('/biz_dishes/:bId/:dishes', async (req, res) => {
 app.post('/post', (req, res) => {
   const { query } = req;
   createEntry(query);
-  res.send(query);
+});
+
+app.delete('/delete/:deleteId', (req, res) => {
+  deleteEntry(req.params.deleteId);
+});
+
+app.patch('/update/:updateId', (req, res) => {
+  const resultString = `${req.params.updateId} ${req.headers.newdata}`;
+  editEntry(req.params.updateId, req.headers.newdata);
+  res.send(resultString);
 });
 
 module.exports = app;
