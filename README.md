@@ -20,6 +20,12 @@
 3. `npm run unseed`: Remove all items from database
 4. `npm test:desc`: Run all tests with descriptions
 
+## CRUD Endpoints (for photos)
+1. **Create:** `/post` pass data via axios or AJAX
+2. **Read:** `/biz_photos/:bId/:pId` legacy code created by Charlene
+3. **Update:** `/update/:updateId` supply new data (data shape TBD) to `newdata` header
+4. **Delete:** `/delete/:deleteId` the item at `:deleteId` will be deleted from DB
+
 ## API Endpoint
 
 ### 1. for business info display
