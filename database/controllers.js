@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
-const { Photo } = require('../database/index');
+const { Client } = require('pg');
+
+const client = new Client();
+
+client.connect();
 
 const createEntry = (image) => {
-  // add image to Mongo Image model
-  const newPhoto = new Photo(image);
-  newPhoto.save(err => err || console.log('success!'));
+  client.query('INSERT INTO ');
 };
 
 const insertManyIntoDb = (images, cb) => {
