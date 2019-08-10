@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 const { Client } = require('pg');
+const path = require('path');
+require('dotenv').config({ path: path.join(__dirname, '../.env') });
 
 const client = new Client({
   user: process.env.DB_USER,
@@ -32,19 +34,28 @@ const createEntry = ({
 };
 
 const insertManyIntoDb = (images, cb) => {
+  // console.log(`INSERT INTO photos VALUES
+  // ${images.map(
+  //   ({
+  //     pId, imgUrl, uId, bId, text, tag,
+  //   }, index, arr) => `(${pId}, '${imgUrl}', ${uId}, ${bId}, '${text}', '${tag}')${
+  //     index !== arr.length - 1 ? ' ' : ';'
+  //   }`,
+  // )}`);
+
   client.query(
     `INSERT INTO photos VALUES
-      ${images.forEach(({
-    pId, imgUrl, uId, bId, text, tag,
-  }, index, arr) => (index !== arr.length - 1
-    ? `(${pId}, ${imgUrl}, ${uId}, ${bId}, ${text}, ${tag}),`
-    : `(${pId}, ${imgUrl}, ${uId}, ${bId}, ${text}, ${tag});`))}
-    `,
+  ${images.map(
+    ({
+      pId, imgUrl, uId, bId, text, tag,
+    }, index, arr) => `(${pId}, '${imgUrl}', ${uId}, ${bId}, '${text}', '${tag}')${
+      index !== arr.length - 1 ? ' ' : ';'
+    }`,
+  )}`,
     (err, res) => {
-      console.log(err ? err.stack : 'Success!');
+      console.log(err ? `Postgres query ${err.stack}` : 'Success!');
       // eslint-disable-next-line no-unused-expressions
       !err && cb();
-      client.end();
     },
   );
 };
