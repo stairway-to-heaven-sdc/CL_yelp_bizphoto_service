@@ -26,3 +26,5 @@ build/
 /client/dist/*main.css
 
 *.swp
+
+*.env
